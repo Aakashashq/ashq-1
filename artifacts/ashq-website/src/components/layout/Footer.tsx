@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Diamond, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Linkedin, Instagram } from "lucide-react";
 import { useLanguage } from "@/components/layout/LanguageProvider";
@@ -23,15 +23,17 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0A2342] text-white">
+    <footer className="bg-[#0D5C34] text-white">
       <div className="border-t border-[#D4AF37]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-[#D4AF37] rounded-sm flex items-center justify-center">
-                  <Diamond className="w-5 h-5 text-[#0A2342]" />
-                </div>
+              <div className="flex items-center gap-2.5 mb-4">
+                <img
+                  src="/logo.jpg"
+                  alt="ASHQ Logo"
+                  className="w-10 h-10 rounded-full object-cover ring-1 ring-[#D4AF37]/50"
+                />
                 <div>
                   <div className="text-xl font-serif font-bold text-[#D4AF37] tracking-widest">ASHQ</div>
                   <div className="text-[9px] text-white/50 tracking-[0.2em] uppercase">{t.nav.merchantExports}</div>

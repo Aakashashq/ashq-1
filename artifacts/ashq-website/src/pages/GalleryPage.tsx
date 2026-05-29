@@ -12,20 +12,20 @@ const stagger = { visible: { transition: { staggerChildren: 0.07 } } };
 type GalleryFilter = "all" | "earrings" | "necklaces" | "sets" | "custom";
 
 const galleryItems = [
-  { id: 1, category: "earrings" as GalleryFilter, label: "Traditional Jhumka Earrings", span: "row-span-2", gradient: "from-[#0A2342] to-[#1a3a5c]" },
+  { id: 1, category: "earrings" as GalleryFilter, label: "Traditional Jhumka Earrings", span: "row-span-2", gradient: "from-[#0D5C34] to-[#1a3a5c]" },
   { id: 2, category: "necklaces" as GalleryFilter, label: "Gold-Plated Choker Set", span: "", gradient: "from-[#1a4a2e] to-[#0E8A6A]/80" },
   { id: 3, category: "sets" as GalleryFilter, label: "Bridal Jewellery Set", span: "", gradient: "from-[#4a3000] to-[#8B6914]" },
-  { id: 4, category: "earrings" as GalleryFilter, label: "Oxidized Silver Drop Earrings", span: "", gradient: "from-[#0d3060] to-[#0A2342]" },
-  { id: 5, category: "necklaces" as GalleryFilter, label: "Layered Chain Necklace", span: "row-span-2", gradient: "from-[#1a3a5c] to-[#0d3060]" },
-  { id: 6, category: "custom" as GalleryFilter, label: "Custom Branded Packaging", span: "", gradient: "from-[#0A2342] to-[#061829]" },
+  { id: 4, category: "earrings" as GalleryFilter, label: "Oxidized Silver Drop Earrings", span: "", gradient: "from-[#0a3d21] to-[#0D5C34]" },
+  { id: 5, category: "necklaces" as GalleryFilter, label: "Layered Chain Necklace", span: "row-span-2", gradient: "from-[#1a3a5c] to-[#0a3d21]" },
+  { id: 6, category: "custom" as GalleryFilter, label: "Custom Branded Packaging", span: "", gradient: "from-[#0D5C34] to-[#061e10]" },
   { id: 7, category: "sets" as GalleryFilter, label: "Festive Gold Set", span: "", gradient: "from-[#3d2800] to-[#7a5200]" },
   { id: 8, category: "earrings" as GalleryFilter, label: "Statement Chandelier Earrings", span: "", gradient: "from-[#0E8A6A]/70 to-[#1a4a2e]" },
-  { id: 9, category: "necklaces" as GalleryFilter, label: "Kundan Pendant Necklace", span: "row-span-2", gradient: "from-[#1a3a5c] to-[#061829]" },
-  { id: 10, category: "custom" as GalleryFilter, label: "OEM Design Collection", span: "", gradient: "from-[#0A2342] to-[#1a3a5c]" },
+  { id: 9, category: "necklaces" as GalleryFilter, label: "Kundan Pendant Necklace", span: "row-span-2", gradient: "from-[#1a3a5c] to-[#061e10]" },
+  { id: 10, category: "custom" as GalleryFilter, label: "OEM Design Collection", span: "", gradient: "from-[#0D5C34] to-[#1a3a5c]" },
   { id: 11, category: "sets" as GalleryFilter, label: "South Indian Wedding Set", span: "", gradient: "from-[#4a2800] to-[#8a5000]" },
-  { id: 12, category: "earrings" as GalleryFilter, label: "Pearl Drop Studs", span: "", gradient: "from-[#0d3060] to-[#0A2342]" },
+  { id: 12, category: "earrings" as GalleryFilter, label: "Pearl Drop Studs", span: "", gradient: "from-[#0a3d21] to-[#0D5C34]" },
   { id: 13, category: "necklaces" as GalleryFilter, label: "Multi-Layer Boho Necklace", span: "", gradient: "from-[#1a4a2e] to-[#0E8A6A]/60" },
-  { id: 14, category: "custom" as GalleryFilter, label: "Private Label Export Lot", span: "", gradient: "from-[#061829] to-[#0A2342]" },
+  { id: 14, category: "custom" as GalleryFilter, label: "Private Label Export Lot", span: "", gradient: "from-[#061e10] to-[#0D5C34]" },
 ];
 
 const galleryFilterValues: { value: GalleryFilter; key: "filterAll" | "filterEarrings" | "filterNecklaces" | "filterSets" | "filterCustom" }[] = [
@@ -46,7 +46,7 @@ export default function GalleryPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -73,7 +73,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-8 bg-[#F8F9FA] dark:bg-[#061829] border-b border-border sticky top-20 z-30">
+      <section className="py-8 bg-[#F0FAF5] dark:bg-[#061e10] border-b border-border sticky top-20 z-30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 flex-wrap justify-center">
             {galleryFilterValues.map((f) => (
@@ -82,7 +82,7 @@ export default function GalleryPage() {
                 onClick={() => setActive(f.value)}
                 className={`px-5 py-2 rounded-full text-sm font-medium tracking-wide transition-all ${
                   active === f.value
-                    ? "bg-[#0A2342] text-[#D4AF37] border border-[#D4AF37]"
+                    ? "bg-[#0D5C34] text-[#D4AF37] border border-[#D4AF37]"
                     : "bg-card border border-border text-foreground hover:border-[#D4AF37] hover:text-[#D4AF37]"
                 }`}
                 data-testid={`gallery-filter-${f.value}`}

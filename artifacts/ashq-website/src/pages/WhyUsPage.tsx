@@ -102,7 +102,7 @@ export default function WhyUsPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -161,7 +161,7 @@ export default function WhyUsPage() {
                   ))}
                 </ul>
               </div>
-              <div className={`${i % 2 !== 0 ? "md:order-1" : ""} aspect-[4/3] rounded-lg bg-gradient-to-br from-[#0A2342] to-[#0d3060] flex items-center justify-center relative overflow-hidden`}>
+              <div className={`${i % 2 !== 0 ? "md:order-1" : ""} aspect-[4/3] rounded-lg bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] flex items-center justify-center relative overflow-hidden`}>
                 <div className="absolute inset-0 opacity-20">
                   <svg width="100%" height="100%">
                     <defs>
@@ -184,7 +184,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-20 bg-[#0A2342]">
+      <section className="py-20 bg-[#0D5C34]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -227,7 +227,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#F8F9FA] dark:bg-background">
+      <section className="py-16 bg-[#F0FAF5] dark:bg-background">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -244,7 +244,7 @@ export default function WhyUsPage() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
                   data-testid="button-partner-with-us"
                 >
                   {t.common.contactUs}

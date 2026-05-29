@@ -71,7 +71,7 @@ export default function ContactPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                       type="submit"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full py-3 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors"
+                      className="w-full py-3 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors"
                       data-testid="button-submit-contact"
                     >
                       {t.contact.submitContact}
@@ -256,7 +256,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="bg-[#F8F9FA] dark:bg-[#061829] py-16">
+      <section className="bg-[#F0FAF5] dark:bg-[#061e10] py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -396,7 +396,7 @@ export default function ContactPage() {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full py-3 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-bold text-sm tracking-wide rounded hover:opacity-90 transition-opacity"
+                    className="w-full py-3 bg-[#0D5C34] dark:bg-[#D4AF37] text-white dark:text-[#0D5C34] font-bold text-sm tracking-wide rounded hover:opacity-90 transition-opacity"
                     data-testid="button-submit-inquiry"
                   >
                     {t.contact.submitInquiry}

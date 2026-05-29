@@ -111,7 +111,7 @@ export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center bg-[#0A2342] overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-[#0D5C34] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -123,7 +123,7 @@ export default function HomePage() {
             <rect width="100%" height="100%" fill="url(#diamond-pattern)" />
           </svg>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2342] via-[#0A2342]/90 to-[#061829]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D5C34] via-[#0D5C34]/90 to-[#061e10]" />
 
         {/* Floating decorative elements */}
         {[...Array(6)].map((_, i) => (
@@ -181,7 +181,7 @@ export default function HomePage() {
                 <motion.span
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors cursor-pointer"
                   data-testid="button-request-catalogue"
                 >
                   <Download className="w-4 h-4" /> {t.common.requestCatalogue}
@@ -213,7 +213,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section ref={statsRef} className="bg-[#061829] py-16 border-y border-[#D4AF37]/20">
+      <section ref={statsRef} className="bg-[#061e10] py-16 border-y border-[#D4AF37]/20">
         <div className="max-w-5xl mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -265,7 +265,7 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="relative rounded-lg overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#0A2342] to-[#0d3060]">
+              <div className="relative rounded-lg overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#0D5C34] to-[#0a3d21]">
                 <div className="absolute inset-0 flex items-center justify-center opacity-20">
                   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -279,7 +279,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Diamond className="w-32 h-32 text-[#D4AF37] opacity-30" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0A2342] to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0D5C34] to-transparent">
                   <p className="text-white font-serif text-lg">"Quality from India, trusted worldwide."</p>
                   <p className="text-[#D4AF37] text-xs mt-1 tracking-wide">— ASHQ Mission Statement</p>
                 </div>
@@ -292,7 +292,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section ref={whyRef} className="py-20 bg-[#F8F9FA] dark:bg-[#061829]">
+      <section ref={whyRef} className="py-20 bg-[#F0FAF5] dark:bg-[#061e10]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -365,7 +365,7 @@ export default function HomePage() {
                 className="group bg-card border border-border rounded-lg overflow-hidden"
                 data-testid={`card-product-${cat.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="h-40 bg-gradient-to-br from-[#0A2342] to-[#0d3060] flex items-center justify-center relative overflow-hidden">
+                <div className="h-40 bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 opacity-20">
                     <svg width="100%" height="100%">
                       <defs>
@@ -398,7 +398,7 @@ export default function HomePage() {
               <motion.span
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-semibold text-sm tracking-wide rounded hover:opacity-90 transition-opacity cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-[#0D5C34] dark:bg-[#D4AF37] text-white dark:text-[#0D5C34] font-semibold text-sm tracking-wide rounded hover:opacity-90 transition-opacity cursor-pointer"
                 data-testid="button-view-all-products"
               >
                 {t.common.viewAll} <ArrowRight className="w-4 h-4" />
@@ -409,7 +409,7 @@ export default function HomePage() {
       </section>
 
       {/* Global Reach */}
-      <section className="py-20 bg-[#0A2342] relative overflow-hidden">
+      <section className="py-20 bg-[#0D5C34] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%">
             <defs>
@@ -491,7 +491,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section ref={testRef} className="py-20 bg-[#F8F9FA] dark:bg-background">
+      <section ref={testRef} className="py-20 bg-[#F0FAF5] dark:bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -529,7 +529,7 @@ export default function HomePage() {
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center gap-3 pt-2 border-t border-border">
-                  <div className="w-10 h-10 rounded-full bg-[#0A2342] flex items-center justify-center text-[#D4AF37] font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-[#0D5C34] flex items-center justify-center text-[#D4AF37] font-bold text-sm">
                     {testimonial.initials}
                   </div>
                   <div>
@@ -544,7 +544,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 bg-[#0A2342]">
+      <section className="py-20 bg-[#0D5C34]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -563,7 +563,7 @@ export default function HomePage() {
                 <motion.span
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded cursor-pointer"
                   data-testid="button-download-catalogue"
                 >
                   <Download className="w-4 h-4" /> {t.common.requestCatalogue}

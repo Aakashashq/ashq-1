@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -69,7 +69,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-[#0A2342] to-[#0d3060] flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                   <svg width="100%" height="100%">
                     <defs>
@@ -81,7 +81,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <Diamond className="w-36 h-36 text-[#D4AF37] opacity-20" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0A2342] to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0D5C34] to-transparent">
                   <div className="flex gap-6">
                     <div className="text-center">
                       <div className="text-2xl font-serif font-bold text-[#D4AF37]">2009</div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-[#F8F9FA] dark:bg-[#061829]">
+      <section className="py-20 bg-[#F0FAF5] dark:bg-[#061e10]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
@@ -147,7 +147,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="bg-[#0A2342] rounded-lg p-10"
+              className="bg-[#0D5C34] rounded-lg p-10"
             >
               <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-[#D4AF37]" />
@@ -204,7 +204,7 @@ export default function AboutPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-20 bg-[#0A2342]">
+      <section className="py-20 bg-[#0D5C34]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             <motion.div
@@ -252,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#F8F9FA] dark:bg-background">
+      <section className="py-16 bg-[#F0FAF5] dark:bg-background">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -270,7 +270,7 @@ export default function AboutPage() {
               <Link href="/contact">
                 <motion.span
                   whileHover={{ scale: 1.04 }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded cursor-pointer"
                   data-testid="button-get-in-touch"
                 >
                   {t.common.contactUs}

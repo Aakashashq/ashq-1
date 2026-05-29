@@ -52,7 +52,7 @@ html {
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
-
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -68,55 +68,55 @@ html {
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  --background: 210 17% 98%;
-  --foreground: 211 78% 15%;
+  --background: 0 0% 100%;
+  --foreground: 148 70% 14%;
 
-  --border: 211 20% 85%;
-  --input: 211 20% 85%;
-  --ring: 211 78% 15%;
+  --border: 148 20% 88%;
+  --input: 148 20% 88%;
+  --ring: 148 70% 14%;
 
   --card: 0 0% 100%;
-  --card-foreground: 211 78% 15%;
-  --card-border: 211 20% 90%;
+  --card-foreground: 148 70% 14%;
+  --card-border: 148 20% 90%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 211 78% 15%;
-  --popover-border: 211 20% 90%;
+  --popover-foreground: 148 70% 14%;
+  --popover-border: 148 20% 90%;
 
-  --primary: 211 78% 15%;
+  --primary: 148 70% 14%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 46 65% 52%;
-  --secondary-foreground: 211 78% 15%;
+  --secondary-foreground: 148 70% 14%;
 
-  --muted: 210 20% 94%;
-  --muted-foreground: 211 30% 40%;
+  --muted: 148 20% 95%;
+  --muted-foreground: 148 25% 38%;
 
-  --accent: 163 80% 30%;
+  --accent: 148 80% 30%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --chart-1: 211 78% 15%;
+  --chart-1: 148 70% 14%;
   --chart-2: 46 65% 52%;
-  --chart-3: 163 80% 30%;
-  --chart-4: 210 20% 60%;
-  --chart-5: 211 50% 30%;
+  --chart-3: 148 80% 30%;
+  --chart-4: 148 20% 60%;
+  --chart-5: 148 50% 30%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Playfair Display', serif;
   
   --radius: 0.5rem;
 
-  --shadow-2xs: 0px 2px 0px 0px hsl(211 78% 15% / 0.05);
-  --shadow-xs: 0px 2px 0px 0px hsl(211 78% 15% / 0.05);
-  --shadow-sm: 0px 2px 0px 0px hsl(211 78% 15% / 0.05), 0px 1px 2px -1px hsl(211 78% 15% / 0.1);
-  --shadow: 0px 2px 0px 0px hsl(211 78% 15% / 0.05), 0px 1px 2px -1px hsl(211 78% 15% / 0.1);
-  --shadow-md: 0px 2px 0px 0px hsl(211 78% 15% / 0.05), 0px 2px 4px -1px hsl(211 78% 15% / 0.1);
-  --shadow-lg: 0px 2px 0px 0px hsl(211 78% 15% / 0.05), 0px 4px 6px -1px hsl(211 78% 15% / 0.1);
-  --shadow-xl: 0px 2px 0px 0px hsl(211 78% 15% / 0.05), 0px 8px 10px -1px hsl(211 78% 15% / 0.1);
-  --shadow-2xl: 0px 2px 0px 0px hsl(211 78% 15% / 0.05);
+  --shadow-2xs: 0px 2px 0px 0px hsl(148 70% 14% / 0.05);
+  --shadow-xs: 0px 2px 0px 0px hsl(148 70% 14% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(148 70% 14% / 0.05), 0px 1px 2px -1px hsl(148 70% 14% / 0.1);
+  --shadow: 0px 2px 0px 0px hsl(148 70% 14% / 0.05), 0px 1px 2px -1px hsl(148 70% 14% / 0.1);
+  --shadow-md: 0px 2px 0px 0px hsl(148 70% 14% / 0.05), 0px 2px 4px -1px hsl(148 70% 14% / 0.1);
+  --shadow-lg: 0px 2px 0px 0px hsl(148 70% 14% / 0.05), 0px 4px 6px -1px hsl(148 70% 14% / 0.1);
+  --shadow-xl: 0px 2px 0px 0px hsl(148 70% 14% / 0.05), 0px 8px 10px -1px hsl(148 70% 14% / 0.1);
+  --shadow-2xl: 0px 2px 0px 0px hsl(148 70% 14% / 0.05);
   
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
@@ -134,41 +134,41 @@ html {
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  --background: 211 78% 10%;
-  --foreground: 210 17% 98%;
+  --background: 148 70% 7%;
+  --foreground: 0 0% 97%;
 
-  --border: 211 30% 25%;
-  --input: 211 30% 25%;
+  --border: 148 30% 22%;
+  --input: 148 30% 22%;
   --ring: 46 65% 52%;
 
-  --card: 211 78% 12%;
-  --card-foreground: 210 17% 98%;
-  --card-border: 211 30% 20%;
+  --card: 148 70% 9%;
+  --card-foreground: 0 0% 97%;
+  --card-border: 148 30% 18%;
 
-  --popover: 211 78% 12%;
-  --popover-foreground: 210 17% 98%;
-  --popover-border: 211 30% 20%;
+  --popover: 148 70% 9%;
+  --popover-foreground: 0 0% 97%;
+  --popover-border: 148 30% 18%;
 
-  --primary: 210 17% 98%;
-  --primary-foreground: 211 78% 15%;
+  --primary: 0 0% 97%;
+  --primary-foreground: 148 70% 14%;
 
   --secondary: 46 65% 52%;
-  --secondary-foreground: 211 78% 15%;
+  --secondary-foreground: 148 70% 14%;
 
-  --muted: 211 40% 20%;
-  --muted-foreground: 211 20% 70%;
+  --muted: 148 40% 16%;
+  --muted-foreground: 148 20% 68%;
 
-  --accent: 163 80% 30%;
+  --accent: 148 80% 30%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 17% 98%;
+  --destructive-foreground: 0 0% 97%;
 
   --chart-1: 46 65% 52%;
-  --chart-2: 163 80% 30%;
-  --chart-3: 210 20% 70%;
-  --chart-4: 211 50% 50%;
-  --chart-5: 210 17% 98%;
+  --chart-2: 148 80% 30%;
+  --chart-3: 148 20% 70%;
+  --chart-4: 148 50% 50%;
+  --chart-5: 0 0% 97%;
 }
 
 @layer base {

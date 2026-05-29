@@ -19,7 +19,7 @@ const products = [
     desc: "Studs, drops, hoops, jhumkas, chandbalis, and shoulder dusters. Traditional and contemporary designs for every market segment.",
     details: ["Available in gold-plated, silver-finish, and oxidized", "Size range: 1cm – 12cm", "MOQ: 100 pairs per design"],
     icon: "◇",
-    gradient: "from-[#0A2342] to-[#1a3a5c]",
+    gradient: "from-[#0D5C34] to-[#1a3a5c]",
   },
   {
     name: "Necklaces",
@@ -27,7 +27,7 @@ const products = [
     desc: "Chains, chokers, layered sets, maang tikkas, and statement pieces in traditional and western styles.",
     details: ["Length range: 16\" – 40\"", "Gold, silver, and rose gold finishes", "MOQ: 50 pieces per design"],
     icon: "◈",
-    gradient: "from-[#1a3a5c] to-[#0A2342]",
+    gradient: "from-[#1a3a5c] to-[#0D5C34]",
   },
   {
     name: "Bangles",
@@ -35,7 +35,7 @@ const products = [
     desc: "Traditional and contemporary bangle designs. Singles, sets of 2-4, and full dozen sets for bridal markets.",
     details: ["Standard sizes 2/2 – 2/12", "Lacquer, meenakari, and plain finishes", "MOQ: 50 sets"],
     icon: "○",
-    gradient: "from-[#0A2342] to-[#0d3060]",
+    gradient: "from-[#0D5C34] to-[#0a3d21]",
   },
   {
     name: "Bracelets",
@@ -43,7 +43,7 @@ const products = [
     desc: "Charm bracelets, link bracelets, cuff bracelets, and tennis-style bracelets for western markets.",
     details: ["Adjustable and fixed sizes available", "Lobster clasp and toggle clasp options", "MOQ: 100 pieces"],
     icon: "◇",
-    gradient: "from-[#0d3060] to-[#0A2342]",
+    gradient: "from-[#0a3d21] to-[#0D5C34]",
   },
   {
     name: "Rings",
@@ -51,7 +51,7 @@ const products = [
     desc: "Fashion rings, cocktail rings, midi rings, and adjustable statement rings in all styles.",
     details: ["Adjustable and standard sized", "Rhinestone, pearl, enamel embellishments", "MOQ: 100 pieces"],
     icon: "◯",
-    gradient: "from-[#0A2342] to-[#1a3a5c]",
+    gradient: "from-[#0D5C34] to-[#1a3a5c]",
   },
   {
     name: "Bridal Jewellery Sets",
@@ -59,7 +59,7 @@ const products = [
     desc: "Complete bridal jewellery sets including necklace, earrings, maang tikka, nath, and bangles. South Asian bridal aesthetics.",
     details: ["Full sets and partial sets", "Heavy and light-weight options", "MOQ: 25 sets per design"],
     icon: "★",
-    gradient: "from-[#1a3a5c] to-[#0d3060]",
+    gradient: "from-[#1a3a5c] to-[#0a3d21]",
   },
   {
     name: "Fashion Jewellery",
@@ -67,7 +67,7 @@ const products = [
     desc: "Trend-driven seasonal collections for fast-fashion retail markets. Updated designs every quarter.",
     details: ["Seasonal trend forecasting included", "Rapid turnaround for fast-fashion buyers", "MOQ: 100 pieces"],
     icon: "◈",
-    gradient: "from-[#0d3060] to-[#0A2342]",
+    gradient: "from-[#0a3d21] to-[#0D5C34]",
   },
   {
     name: "Custom Designs",
@@ -75,7 +75,7 @@ const products = [
     desc: "OEM/ODM manufacturing to your exact specifications. Provide a sketch, image, or sample — we'll produce it.",
     details: ["3D rendering available on request", "Private labelling and branded packaging", "MOQ: Negotiable"],
     icon: "◆",
-    gradient: "from-[#0A2342] to-[#0d3060]",
+    gradient: "from-[#0D5C34] to-[#0a3d21]",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function ProductsPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -122,7 +122,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-8 bg-[#F8F9FA] dark:bg-[#061829] border-b border-border sticky top-20 z-30">
+      <section className="py-8 bg-[#F0FAF5] dark:bg-[#061e10] border-b border-border sticky top-20 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-3 flex-wrap justify-center">
             {filterValues.map((f) => (
@@ -131,7 +131,7 @@ export default function ProductsPage() {
                 onClick={() => setActive(f.value)}
                 className={`px-5 py-2 rounded-full text-sm font-medium tracking-wide transition-all ${
                   active === f.value
-                    ? "bg-[#0A2342] text-[#D4AF37] border border-[#D4AF37]"
+                    ? "bg-[#0D5C34] text-[#D4AF37] border border-[#D4AF37]"
                     : "bg-card border border-border text-foreground hover:border-[#D4AF37] hover:text-[#D4AF37]"
                 }`}
                 data-testid={`filter-${f.value}`}
@@ -184,7 +184,7 @@ export default function ProductsPage() {
                         product.category === "custom"
                           ? "bg-[#0E8A6A]/80 text-white"
                           : product.category === "sets"
-                          ? "bg-[#D4AF37]/80 text-[#0A2342]"
+                          ? "bg-[#D4AF37]/80 text-[#0D5C34]"
                           : "bg-white/20 text-white"
                       }`}>
                         {product.category}
@@ -206,7 +206,7 @@ export default function ProductsPage() {
                       <motion.span
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.97 }}
-                        className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] text-sm font-semibold rounded cursor-pointer hover:opacity-90 transition-opacity"
+                        className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#0D5C34] dark:bg-[#D4AF37] text-white dark:text-[#0D5C34] text-sm font-semibold rounded cursor-pointer hover:opacity-90 transition-opacity"
                         data-testid={`button-inquire-${product.name.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         {t.products.inquireBtn} <ChevronRight className="w-4 h-4" />
@@ -221,7 +221,7 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0A2342]">
+      <section className="py-16 bg-[#0D5C34]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -237,7 +237,7 @@ export default function ProductsPage() {
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact">
-                <span className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
+                <span className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0D5C34] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
                   data-testid="button-custom-inquiry">
                   {t.products.requestCta}
                 </span>

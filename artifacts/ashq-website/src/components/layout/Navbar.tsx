@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, Diamond, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown, Globe } from "lucide-react";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import type { Language } from "@/lib/translations";
@@ -58,17 +58,19 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A2342]/90 backdrop-blur-md shadow-lg border-b border-[#D4AF37]/20"
+          ? "bg-[#0D5C34]/90 backdrop-blur-md shadow-lg border-b border-[#D4AF37]/20"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer group" data-testid="logo-link">
-              <div className="w-8 h-8 bg-[#D4AF37] rounded-sm flex items-center justify-center">
-                <Diamond className="w-5 h-5 text-[#0A2342]" />
-              </div>
+            <div className="flex items-center gap-2.5 cursor-pointer group" data-testid="logo-link">
+              <img
+                src="/logo.jpg"
+                alt="ASHQ Logo"
+                className="w-10 h-10 rounded-full object-cover ring-1 ring-[#D4AF37]/60 group-hover:ring-[#D4AF37] transition-all"
+              />
               <div className="flex flex-col leading-tight">
                 <span className="text-xl font-serif font-bold text-[#D4AF37] tracking-widest">
                   ASHQ
@@ -126,7 +128,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -6, scale: 0.96 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute top-full mt-1 right-0 w-40 bg-[#0A2342] border border-[#D4AF37]/30 rounded shadow-xl overflow-hidden z-50"
+                    className="absolute top-full mt-1 right-0 w-40 bg-[#0D5C34] border border-[#D4AF37]/30 rounded shadow-xl overflow-hidden z-50"
                   >
                     {languages.map((lang) => (
                       <button
@@ -161,7 +163,7 @@ export function Navbar() {
 
             <Link href="/contact">
               <span
-                className="hidden md:inline-flex px-4 py-2 text-sm font-semibold bg-[#D4AF37] text-[#0A2342] rounded hover:bg-[#c9a230] transition-colors cursor-pointer whitespace-nowrap"
+                className="hidden md:inline-flex px-4 py-2 text-sm font-semibold bg-[#D4AF37] text-[#0D5C34] rounded hover:bg-[#c9a230] transition-colors cursor-pointer whitespace-nowrap"
                 data-testid="button-get-quote"
               >
                 {t.nav.getQuote}
@@ -187,7 +189,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden bg-[#0A2342]/95 backdrop-blur-md border-t border-[#D4AF37]/20"
+            className="lg:hidden bg-[#0D5C34]/95 backdrop-blur-md border-t border-[#D4AF37]/20"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => {

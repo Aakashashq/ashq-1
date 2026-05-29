@@ -106,7 +106,7 @@ export default function ExportServicesPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-[#0A2342] py-24 relative overflow-hidden">
+      <section className="bg-[#0D5C34] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg width="100%" height="100%">
             <defs>
@@ -184,7 +184,7 @@ export default function ExportServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-[#0A2342]">
+      <section className="py-20 bg-[#0D5C34]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -215,7 +215,7 @@ export default function ExportServicesPage() {
                   variants={fadeUp}
                   className="relative text-center flex flex-col items-center"
                 >
-                  <div className="relative z-10 w-24 h-24 rounded-full bg-[#061829] border-2 border-[#D4AF37]/40 flex flex-col items-center justify-center mb-5">
+                  <div className="relative z-10 w-24 h-24 rounded-full bg-[#061e10] border-2 border-[#D4AF37]/40 flex flex-col items-center justify-center mb-5">
                     <span className="text-[#D4AF37]/50 text-xs font-mono">{step.step}</span>
                     <span className="text-white font-serif font-bold text-sm">{step.title}</span>
                   </div>
@@ -231,7 +231,7 @@ export default function ExportServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#F8F9FA] dark:bg-background">
+      <section className="py-16 bg-[#F0FAF5] dark:bg-background">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -248,7 +248,7 @@ export default function ExportServicesPage() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#0D5C34] dark:bg-[#D4AF37] text-white dark:text-[#0D5C34] font-bold text-sm tracking-wide rounded cursor-pointer hover:opacity-90 transition-opacity"
                   data-testid="button-start-inquiry"
                 >
                   {t.common.sendInquiry}
