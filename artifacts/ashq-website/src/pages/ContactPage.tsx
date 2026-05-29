@@ -9,6 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -40,6 +41,7 @@ const productCategories = ["Earrings", "Necklaces", "Bangles", "Bracelets", "Rin
 const budgetRanges = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $10,000", "$10,000 – $50,000", "Above $50,000"];
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
@@ -83,10 +85,10 @@ export default function ContactPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Get in Touch
+              {t.contact.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              Contact Us
+              {t.contact.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
               Ready to source premium Indian imitation jewellery? Our export team is available Monday through Saturday.
@@ -108,7 +110,7 @@ export default function ContactPage() {
               className="space-y-5"
             >
               <motion.div variants={fadeUp}>
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-6">Business Information</h2>
+                <h2 className="text-2xl font-serif font-bold text-foreground mb-6">{t.contact.infoHeading}</h2>
               </motion.div>
               {[
                 {
@@ -144,7 +146,7 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-2 bg-card border border-border rounded-lg p-8"
             >
-              <h2 className="text-2xl font-serif font-bold text-foreground mb-6">Send a Message</h2>
+              <h2 className="text-2xl font-serif font-bold text-foreground mb-6">{t.contact.formHeading}</h2>
 
               {contactSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -161,7 +163,7 @@ export default function ContactPage() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <FormField control={contactForm.control} name="name" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Full Name</FormLabel>
+                          <FormLabel>{t.contact.nameLabel}</FormLabel>
                           <FormControl>
                             <Input placeholder="John Smith" {...field} data-testid="input-name" />
                           </FormControl>
@@ -170,7 +172,7 @@ export default function ContactPage() {
                       )} />
                       <FormField control={contactForm.control} name="company" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Company Name</FormLabel>
+                          <FormLabel>{t.contact.companyLabel}</FormLabel>
                           <FormControl>
                             <Input placeholder="Your Company Ltd." {...field} data-testid="input-company" />
                           </FormControl>
@@ -181,7 +183,7 @@ export default function ContactPage() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <FormField control={contactForm.control} name="country" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Country</FormLabel>
+                          <FormLabel>{t.contact.countryLabel}</FormLabel>
                           <FormControl>
                             <Input placeholder="United Kingdom" {...field} data-testid="input-country" />
                           </FormControl>
@@ -190,7 +192,7 @@ export default function ContactPage() {
                       )} />
                       <FormField control={contactForm.control} name="email" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email Address</FormLabel>
+                          <FormLabel>{t.contact.emailLabel}</FormLabel>
                           <FormControl>
                             <Input type="email" placeholder="john@company.com" {...field} data-testid="input-email" />
                           </FormControl>
@@ -201,7 +203,7 @@ export default function ContactPage() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <FormField control={contactForm.control} name="phone" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone / WhatsApp</FormLabel>
+                          <FormLabel>{t.contact.phoneLabel}</FormLabel>
                           <FormControl>
                             <Input placeholder="+44 7000 000000" {...field} data-testid="input-phone" />
                           </FormControl>
@@ -210,7 +212,7 @@ export default function ContactPage() {
                       )} />
                       <FormField control={contactForm.control} name="productInterest" render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Product Interest</FormLabel>
+                          <FormLabel>{t.contact.productInterestLabel}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger data-testid="select-product-interest">
@@ -229,9 +231,9 @@ export default function ContactPage() {
                     </div>
                     <FormField control={contactForm.control} name="message" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>{t.contact.messageLabel}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Please describe your requirements, quantities, and any specific designs..." rows={5} {...field} data-testid="textarea-message" />
+                          <Textarea placeholder={t.contact.messagePlaceholder} rows={5} {...field} data-testid="textarea-message" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -243,7 +245,7 @@ export default function ContactPage() {
                       className="w-full py-3 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors"
                       data-testid="button-submit-contact"
                     >
-                      Send Message
+                      {t.contact.submitContact}
                     </motion.button>
                   </form>
                 </Form>
@@ -303,10 +305,10 @@ export default function ContactPage() {
             className="text-center mb-10"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Export Inquiry
+              {t.contact.label}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-foreground">
-              Quick Export Inquiry
+              {t.contact.inquiryHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mt-3">
               Share your basic requirements and our export team will follow up with pricing and availability.
@@ -323,10 +325,10 @@ export default function ContactPage() {
             {inquirySubmitted ? (
               <div className="flex flex-col items-center justify-center py-10 text-center">
                 <CheckCircle className="w-14 h-14 text-[#0E8A6A] mb-4" />
-                <h3 className="text-xl font-serif font-bold text-foreground mb-2">Inquiry Received!</h3>
-                <p className="text-muted-foreground">Our export team will contact you within 24 hours.</p>
+                <h3 className="text-xl font-serif font-bold text-foreground mb-2">{t.contact.successInquiry}</h3>
+                <p className="text-muted-foreground">{t.contact.successContact}</p>
                 <button onClick={() => setInquirySubmitted(false)} className="mt-6 text-[#D4AF37] text-sm font-semibold hover:underline">
-                  Submit another inquiry
+                  {t.contact.submitInquiry}
                 </button>
               </div>
             ) : (
@@ -335,7 +337,7 @@ export default function ContactPage() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <FormField control={inquiryForm.control} name="quantity" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Quantity Needed</FormLabel>
+                        <FormLabel>{t.contact.quantityLabel}</FormLabel>
                         <FormControl>
                           <Input placeholder="e.g. 500 pieces" {...field} data-testid="input-quantity" />
                         </FormControl>
@@ -344,7 +346,7 @@ export default function ContactPage() {
                     )} />
                     <FormField control={inquiryForm.control} name="productType" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Product Type</FormLabel>
+                        <FormLabel>{t.contact.productTypeLabel}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger data-testid="select-product-type">
@@ -364,7 +366,7 @@ export default function ContactPage() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <FormField control={inquiryForm.control} name="destinationCountry" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Destination Country</FormLabel>
+                        <FormLabel>{t.contact.destinationLabel}</FormLabel>
                         <FormControl>
                           <Input placeholder="e.g. United Kingdom" {...field} data-testid="input-destination" />
                         </FormControl>
@@ -373,7 +375,7 @@ export default function ContactPage() {
                     )} />
                     <FormField control={inquiryForm.control} name="budgetRange" render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Budget Range (USD)</FormLabel>
+                        <FormLabel>{t.contact.budgetLabel}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger data-testid="select-budget">
@@ -397,7 +399,7 @@ export default function ContactPage() {
                     className="w-full py-3 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-bold text-sm tracking-wide rounded hover:opacity-90 transition-opacity"
                     data-testid="button-submit-inquiry"
                   >
-                    Submit Export Inquiry
+                    {t.contact.submitInquiry}
                   </motion.button>
                 </form>
               </Form>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ZoomIn, X, Diamond } from "lucide-react";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,15 +28,16 @@ const galleryItems = [
   { id: 14, category: "custom" as GalleryFilter, label: "Private Label Export Lot", span: "", gradient: "from-[#061829] to-[#0A2342]" },
 ];
 
-const filters: { label: string; value: GalleryFilter }[] = [
-  { label: "All", value: "all" },
-  { label: "Earrings", value: "earrings" },
-  { label: "Necklaces", value: "necklaces" },
-  { label: "Sets", value: "sets" },
-  { label: "Custom", value: "custom" },
+const galleryFilterValues: { value: GalleryFilter; key: "filterAll" | "filterEarrings" | "filterNecklaces" | "filterSets" | "filterCustom" }[] = [
+  { value: "all", key: "filterAll" },
+  { value: "earrings", key: "filterEarrings" },
+  { value: "necklaces", key: "filterNecklaces" },
+  { value: "sets", key: "filterSets" },
+  { value: "custom", key: "filterCustom" },
 ];
 
 export default function GalleryPage() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<GalleryFilter>("all");
   const [selected, setSelected] = useState<typeof galleryItems[0] | null>(null);
 
@@ -58,10 +60,10 @@ export default function GalleryPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Portfolio
+              {t.gallery.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              Product Gallery
+              {t.gallery.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
               A glimpse of the premium imitation jewellery we source and export for our global clients.
@@ -74,7 +76,7 @@ export default function GalleryPage() {
       <section className="py-8 bg-[#F8F9FA] dark:bg-[#061829] border-b border-border sticky top-20 z-30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 flex-wrap justify-center">
-            {filters.map((f) => (
+            {galleryFilterValues.map((f) => (
               <button
                 key={f.value}
                 onClick={() => setActive(f.value)}
@@ -85,7 +87,7 @@ export default function GalleryPage() {
                 }`}
                 data-testid={`gallery-filter-${f.value}`}
               >
-                {f.label}
+                {t.gallery[f.key]}
               </button>
             ))}
           </div>

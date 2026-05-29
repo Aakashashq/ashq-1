@@ -1,24 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, Diamond } from "lucide-react";
+import { Menu, X, Sun, Moon, Diamond, ChevronDown, Globe } from "lucide-react";
 import { useTheme } from "@/components/layout/ThemeProvider";
+import { useLanguage } from "@/components/layout/LanguageProvider";
+import type { Language } from "@/lib/translations";
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Products", href: "/products" },
-  { label: "Export Services", href: "/export-services" },
-  { label: "Why Us", href: "/why-us" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
+const languages: { code: Language; label: string; flag: string }[] = [
+  { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "ar", label: "العربية", flag: "🇦🇪" },
+  { code: "fr", label: "Français", flag: "🇫🇷" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const [location] = useLocation();
   const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const navLinks = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.products, href: "/products" },
+    { label: t.nav.exportServices, href: "/export-services" },
+    { label: t.nav.whyUs, href: "/why-us" },
+    { label: t.nav.gallery, href: "/gallery" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,9 +41,18 @@ export function Navbar() {
     setMenuOpen(false);
   }, [location]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  const currentLang = languages.find((l) => l.code === language)!;
 
   return (
     <header
@@ -54,7 +74,7 @@ export function Navbar() {
                   ASHQ
                 </span>
                 <span className="text-[9px] text-white/60 tracking-[0.2em] uppercase hidden sm:block">
-                  Merchant Exports
+                  {t.nav.merchantExports}
                 </span>
               </div>
             </div>
@@ -71,7 +91,7 @@ export function Navbar() {
                         ? "text-[#D4AF37]"
                         : "text-white/80 hover:text-[#D4AF37]"
                     }`}
-                    data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                    data-testid={`nav-link-${link.href.replace(/\//g, "").replace(/-/g, "") || "home"}`}
                   >
                     {link.label}
                     {isActive && (
@@ -86,7 +106,50 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* Language switcher */}
+            <div className="relative" ref={langRef}>
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded text-white/80 hover:text-[#D4AF37] hover:bg-white/10 transition-colors text-sm"
+                aria-label="Switch language"
+              >
+                <Globe className="w-4 h-4 shrink-0" />
+                <span className="hidden sm:inline font-medium">{currentLang.flag} {currentLang.code.toUpperCase()}</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.96 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full mt-1 right-0 w-40 bg-[#0A2342] border border-[#D4AF37]/30 rounded shadow-xl overflow-hidden z-50"
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => { setLanguage(lang.code); setLangOpen(false); }}
+                        className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm transition-colors text-left ${
+                          language === lang.code
+                            ? "bg-[#D4AF37]/20 text-[#D4AF37]"
+                            : "text-white/80 hover:bg-white/10 hover:text-white"
+                        }`}
+                      >
+                        <span className="text-base">{lang.flag}</span>
+                        <span>{lang.label}</span>
+                        {language === lang.code && (
+                          <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+                        )}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full text-white/80 hover:text-[#D4AF37] hover:bg-white/10 transition-colors"
@@ -98,10 +161,10 @@ export function Navbar() {
 
             <Link href="/contact">
               <span
-                className="hidden md:inline-flex px-4 py-2 text-sm font-semibold bg-[#D4AF37] text-[#0A2342] rounded hover:bg-[#c9a230] transition-colors cursor-pointer"
+                className="hidden md:inline-flex px-4 py-2 text-sm font-semibold bg-[#D4AF37] text-[#0A2342] rounded hover:bg-[#c9a230] transition-colors cursor-pointer whitespace-nowrap"
                 data-testid="button-get-quote"
               >
-                Get a Quote
+                {t.nav.getQuote}
               </span>
             </Link>
 
@@ -143,6 +206,25 @@ export function Navbar() {
                   </Link>
                 );
               })}
+              <div className="pt-3 border-t border-white/10 mt-1">
+                <p className="text-white/40 text-xs px-4 mb-2 uppercase tracking-wider">Language</p>
+                <div className="flex gap-2 px-4">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => { setLanguage(lang.code); setMenuOpen(false); }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-sm transition-colors ${
+                        language === lang.code
+                          ? "bg-[#D4AF37]/20 text-[#D4AF37] font-semibold"
+                          : "text-white/60 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.code.toUpperCase()}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

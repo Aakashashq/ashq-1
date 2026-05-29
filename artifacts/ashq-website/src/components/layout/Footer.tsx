@@ -2,29 +2,26 @@ import { Link } from "wouter";
 import { Diamond, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Linkedin, Instagram } from "lucide-react";
-
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Products", href: "/products" },
-  { label: "Export Services", href: "/export-services" },
-  { label: "Why Choose Us", href: "/why-us" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
-];
-
-const productLinks = [
-  "Earrings",
-  "Necklaces",
-  "Bangles",
-  "Bracelets",
-  "Rings",
-  "Bridal Sets",
-  "Fashion Jewellery",
-  "Custom Designs",
-];
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 export function Footer() {
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { label: t.nav.home, href: "/" },
+    { label: t.footer.aboutUs, href: "/about" },
+    { label: t.nav.products, href: "/products" },
+    { label: t.nav.exportServices, href: "/export-services" },
+    { label: t.footer.whyChooseUs, href: "/why-us" },
+    { label: t.nav.gallery, href: "/gallery" },
+    { label: t.footer.contactNav, href: "/contact" },
+  ];
+
+  const productLinks = [
+    "Earrings", "Necklaces", "Bangles", "Bracelets",
+    "Rings", "Bridal Sets", "Fashion Jewellery", "Custom Designs",
+  ];
+
   return (
     <footer className="bg-[#0A2342] text-white">
       <div className="border-t border-[#D4AF37]/30">
@@ -37,11 +34,11 @@ export function Footer() {
                 </div>
                 <div>
                   <div className="text-xl font-serif font-bold text-[#D4AF37] tracking-widest">ASHQ</div>
-                  <div className="text-[9px] text-white/50 tracking-[0.2em] uppercase">Merchant Exports</div>
+                  <div className="text-[9px] text-white/50 tracking-[0.2em] uppercase">{t.nav.merchantExports}</div>
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Mumbai-based proprietorship merchant export firm specializing in premium imitation jewellery manufacturing and international export to 30+ countries.
+                {t.footer.tagline}
               </p>
               <div className="flex items-center gap-3">
                 <a
@@ -71,7 +68,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">Quick Links</h4>
+              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">{t.footer.quickLinks}</h4>
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -86,7 +83,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">Product Categories</h4>
+              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">{t.footer.productCategories}</h4>
               <ul className="space-y-2">
                 {productLinks.map((item) => (
                   <li key={item}>
@@ -101,7 +98,7 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">Contact Info</h4>
+              <h4 className="text-[#D4AF37] font-serif text-base font-semibold mb-4 tracking-wide">{t.footer.contactInfo}</h4>
               <ul className="space-y-4">
                 <li className="flex gap-3">
                   <MapPin className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
@@ -119,7 +116,7 @@ export function Footer() {
                 </li>
                 <li className="flex gap-3">
                   <Clock className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
-                  <span className="text-white/60 text-sm">Mon – Sat: 10:00 AM – 7:00 PM IST</span>
+                  <span className="text-white/60 text-sm">{t.footer.hours}</span>
                 </li>
               </ul>
             </div>
@@ -129,10 +126,10 @@ export function Footer() {
         <div className="border-t border-[#D4AF37]/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-white/40 text-xs">
-              © {new Date().getFullYear()} ASHQ Merchant Exports. All rights reserved.
+              © {new Date().getFullYear()} {t.footer.copyright}
             </p>
             <p className="text-white/40 text-xs">
-              IEC Registered · GST Compliant · Mumbai, India
+              {t.footer.compliance}
             </p>
           </div>
         </div>

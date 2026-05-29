@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Diamond, Target, Eye, Award, Package, Globe, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,6 +28,7 @@ const capabilities = [
 ];
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -44,10 +46,10 @@ export default function AboutPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Story
+              {t.about.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              About ASHQ
+              {t.about.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
               A Mumbai-based merchant export firm built on trust, quality, and a deep connection with India's finest jewellery artisans.
@@ -103,9 +105,9 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">Company Overview</span>
+              <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">{t.about.storyLabel}</span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-5 leading-tight">
-                Mumbai's Trusted Imitation Jewellery Merchant Exporter
+                {t.about.storyHeading}
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 ASHQ is a proprietorship merchant export firm established in Mumbai, Maharashtra, specializing in the sourcing, quality inspection, and international export of premium imitation jewellery. We are not a manufacturer — we are a merchant exporter with an extensive network of verified suppliers across India's leading jewellery production hubs.
@@ -135,9 +137,9 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mb-6">
                 <Target className="w-6 h-6 text-[#D4AF37]" />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-4">{t.about.missionHeading}</h3>
               <p className="text-muted-foreground leading-relaxed text-lg italic font-serif">
-                "To be the most trusted bridge between Indian imitation jewellery artisans and global buyers — delivering consistent quality, transparent pricing, and reliable service on every order."
+                "{t.about.missionText}"
               </p>
             </motion.div>
             <motion.div
@@ -150,9 +152,9 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-[#D4AF37]" />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-serif font-bold text-white mb-4">{t.about.visionHeading}</h3>
               <p className="text-white/70 leading-relaxed text-lg italic font-serif">
-                "To connect every corner of the world with the finest fashion jewellery from India — making Indian craftsmanship a household name in global markets."
+                "{t.about.visionText}"
               </p>
             </motion.div>
           </div>
@@ -170,10 +172,10 @@ export default function AboutPage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              What We Stand For
+              {t.about.valuesLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl font-serif font-bold text-foreground">
-              Our Core Values
+              {t.about.valuesHeading}
             </motion.h2>
           </motion.div>
           <motion.div
@@ -212,10 +214,10 @@ export default function AboutPage() {
               variants={stagger}
             >
               <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-                What We Do
+                {t.about.capabilitiesLabel}
               </motion.span>
               <motion.h2 variants={fadeUp} className="text-4xl font-serif font-bold text-white mb-8 leading-tight">
-                Manufacturing & Export Capabilities
+                {t.about.capabilitiesHeading}
               </motion.h2>
               <motion.div variants={stagger} className="space-y-3">
                 {capabilities.map((cap) => (
@@ -259,10 +261,10 @@ export default function AboutPage() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-foreground mb-4">
-              Partner with ASHQ Today
+              {t.whyUs.ctaHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mb-8">
-              Whether you're an importer, wholesaler, or retail chain — we're ready to be your trusted supply partner from India.
+              {t.whyUs.ctaSub}
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact">
@@ -271,7 +273,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer"
                   data-testid="button-get-in-touch"
                 >
-                  Get in Touch
+                  {t.common.contactUs}
                 </motion.span>
               </Link>
             </motion.div>

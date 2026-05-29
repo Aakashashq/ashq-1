@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Diamond, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -78,14 +79,15 @@ const products = [
   },
 ];
 
-const filters: { label: string; value: Category }[] = [
-  { label: "All Products", value: "all" },
-  { label: "Sets", value: "sets" },
-  { label: "Individual", value: "individual" },
-  { label: "Custom", value: "custom" },
+const filterValues: { value: Category; key: "filterAll" | "filterSets" | "filterIndividual" | "filterCustom" }[] = [
+  { value: "all", key: "filterAll" },
+  { value: "sets", key: "filterSets" },
+  { value: "individual", key: "filterIndividual" },
+  { value: "custom", key: "filterCustom" },
 ];
 
 export default function ProductsPage() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<Category>("all");
 
   const filtered = active === "all" ? products : products.filter((p) => p.category === active);
@@ -107,10 +109,10 @@ export default function ProductsPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Collections
+              {t.products.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              Product Categories
+              {t.products.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
               500+ product variants across 8 categories, sourced from India's finest jewellery artisans.
@@ -123,7 +125,7 @@ export default function ProductsPage() {
       <section className="py-8 bg-[#F8F9FA] dark:bg-[#061829] border-b border-border sticky top-20 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-3 flex-wrap justify-center">
-            {filters.map((f) => (
+            {filterValues.map((f) => (
               <button
                 key={f.value}
                 onClick={() => setActive(f.value)}
@@ -134,7 +136,7 @@ export default function ProductsPage() {
                 }`}
                 data-testid={`filter-${f.value}`}
               >
-                {f.label}
+                {t.products[f.key]}
               </button>
             ))}
           </div>
@@ -207,7 +209,7 @@ export default function ProductsPage() {
                         className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] text-sm font-semibold rounded cursor-pointer hover:opacity-90 transition-opacity"
                         data-testid={`button-inquire-${product.name.toLowerCase().replace(/\s+/g, "-")}`}
                       >
-                        Send Inquiry <ChevronRight className="w-4 h-4" />
+                        {t.products.inquireBtn} <ChevronRight className="w-4 h-4" />
                       </motion.span>
                     </Link>
                   </div>
@@ -228,16 +230,16 @@ export default function ProductsPage() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-white mb-4">
-              Don't See What You're Looking For?
+              {t.products.requestBtn}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-white/60 mb-8">
-              We source from 200+ verified manufacturers. If it's made in India, we can find it.
+              {t.products.requestSub}
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
                   data-testid="button-custom-inquiry">
-                  Send a Custom Inquiry
+                  {t.products.requestCta}
                 </span>
               </Link>
             </motion.div>

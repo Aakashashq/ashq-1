@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { LanguageProvider } from "@/components/layout/LanguageProvider";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { Navbar } from "@/components/layout/Navbar";
@@ -43,15 +44,17 @@ function Router() {
 function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="ashq-theme">
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <LoadingScreen />
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Router />
-          </WouterRouter>
-          <Toaster />
-        </TooltipProvider>
-      </QueryClientProvider>
+      <LanguageProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <LoadingScreen />
+            <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+              <Router />
+            </WouterRouter>
+            <Toaster />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

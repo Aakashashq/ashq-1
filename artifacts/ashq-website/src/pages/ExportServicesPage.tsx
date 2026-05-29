@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Package, Search, Shield, Box, FileText, Truck, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -101,6 +102,7 @@ const steps = [
 ];
 
 export default function ExportServicesPage() {
+  const { t } = useLanguage();
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -118,13 +120,13 @@ export default function ExportServicesPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              What We Offer
+              {t.exportServices.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              Export Services
+              {t.exportServices.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
-              Comprehensive merchant export services — from sourcing and quality control to documentation and international delivery.
+              {t.exportServices.sub}
             </motion.p>
           </motion.div>
         </div>
@@ -192,10 +194,10 @@ export default function ExportServicesPage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              How It Works
+              {t.exportServices.processLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl font-serif font-bold text-white">
-              Our Export Process
+              {t.exportServices.processHeading}
             </motion.h2>
           </motion.div>
           <motion.div
@@ -238,10 +240,10 @@ export default function ExportServicesPage() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-foreground mb-4">
-              Ready to Start Importing from India?
+              {t.exportServices.ctaHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mb-8">
-              Share your requirements and let ASHQ handle the rest — from sourcing to your doorstep.
+              {t.exportServices.ctaSub}
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact">
@@ -249,7 +251,7 @@ export default function ExportServicesPage() {
                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:opacity-90 transition-opacity"
                   data-testid="button-start-inquiry"
                 >
-                  Start an Inquiry
+                  {t.common.sendInquiry}
                 </span>
               </Link>
             </motion.div>

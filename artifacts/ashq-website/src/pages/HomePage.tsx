@@ -5,6 +5,7 @@ import {
   Diamond, Globe, Shield, Clock, Package, Star,
   Award, TrendingUp, ChevronRight, ArrowRight, Download, MessageSquare
 } from "lucide-react";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -97,6 +98,7 @@ const exportRegions = [
 ];
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const statsRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
   const whyRef = useRef(null);
@@ -155,25 +157,24 @@ export default function HomePage() {
           >
             <motion.div variants={fadeUp} className="mb-4">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#D4AF37]/40 text-[#D4AF37] text-xs tracking-[0.2em] uppercase">
-                <Diamond className="w-3 h-3" /> Mumbai, India — Est. 2009
+                <Diamond className="w-3 h-3" /> {t.common.estBadge}
               </span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
               className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6"
             >
-              Trusted Indian{" "}
-              <span className="text-[#D4AF37]">Manufacturer</span> &{" "}
+              {t.home.heroHeading1}{" "}
+              <span className="text-[#D4AF37]">{t.home.heroHeading2}</span> &{" "}
               <br className="hidden md:block" />
-              Merchant Exporter of{" "}
-              <span className="text-[#D4AF37]">Premium Imitation Jewellery</span>
+              {t.home.heroHeading3}{" "}
+              <span className="text-[#D4AF37]">{t.home.heroHeading4}</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
               className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
             >
-              Connecting Global Buyers with High-Quality Fashion Jewellery from India.
-              Serving importers, wholesalers, and distributors across 30+ countries.
+              {t.home.heroSub}
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
@@ -183,7 +184,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded hover:bg-[#c9a230] transition-colors cursor-pointer"
                   data-testid="button-request-catalogue"
                 >
-                  <Download className="w-4 h-4" /> Request Catalogue
+                  <Download className="w-4 h-4" /> {t.common.requestCatalogue}
                 </motion.span>
               </Link>
               <Link href="/contact">
@@ -193,7 +194,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 px-8 py-4 border border-white/40 text-white font-semibold text-sm tracking-wide rounded hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors cursor-pointer"
                   data-testid="button-contact-us-hero"
                 >
-                  <MessageSquare className="w-4 h-4" /> Contact Us
+                  <MessageSquare className="w-4 h-4" /> {t.common.contactUs}
                 </motion.span>
               </Link>
             </motion.div>
@@ -220,10 +221,10 @@ export default function HomePage() {
             variants={stagger}
             className="grid grid-cols-2 md:grid-cols-4 gap-10"
           >
-            <motion.div variants={fadeUp}><StatCounter value={500} suffix="+" label="Products" /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={30} suffix="+" label="Countries" /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={1000} suffix="+" label="Happy Clients" /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={15} suffix="+" label="Years Experience" /></motion.div>
+            <motion.div variants={fadeUp}><StatCounter value={500} suffix="+" label={t.home.statProducts} /></motion.div>
+            <motion.div variants={fadeUp}><StatCounter value={30} suffix="+" label={t.home.statCountries} /></motion.div>
+            <motion.div variants={fadeUp}><StatCounter value={1000} suffix="+" label={t.home.statClients} /></motion.div>
+            <motion.div variants={fadeUp}><StatCounter value={15} suffix="+" label={t.home.statYears} /></motion.div>
           </motion.div>
         </div>
       </section>
@@ -300,10 +301,10 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Advantage
+              {t.home.whyLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif font-bold text-foreground">
-              Why Choose ASHQ?
+              {t.home.whyHeading}
             </motion.h2>
           </motion.div>
           <motion.div
@@ -341,13 +342,13 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Collections
+              {t.home.categoriesLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif font-bold text-foreground">
-              Product Categories
+              {t.home.categoriesHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mt-4 max-w-xl mx-auto">
-              Explore our comprehensive range of imitation jewellery designed for global markets.
+              {t.home.categoriesSub}
             </motion.p>
           </motion.div>
           <motion.div
@@ -400,7 +401,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 px-8 py-3 bg-[#0A2342] dark:bg-[#D4AF37] text-white dark:text-[#0A2342] font-semibold text-sm tracking-wide rounded hover:opacity-90 transition-opacity cursor-pointer"
                 data-testid="button-view-all-products"
               >
-                View All Products <ArrowRight className="w-4 h-4" />
+                {t.common.viewAll} <ArrowRight className="w-4 h-4" />
               </motion.span>
             </Link>
           </div>
@@ -428,13 +429,13 @@ export default function HomePage() {
             className="text-center mb-12"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Global Reach
+              {t.home.globalLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
-              Exporting to 30+ Countries Worldwide
+              {t.home.globalHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-white/60 max-w-xl mx-auto">
-              From Mumbai's jewellery artisans to buyers across Europe, the Middle East, North America, Africa, and Southeast Asia.
+              {t.home.globalSub}
             </motion.p>
           </motion.div>
 
@@ -499,10 +500,10 @@ export default function HomePage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Client Testimonials
+              {t.home.testimonialsLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif font-bold text-foreground">
-              Trusted by Global Buyers
+              {t.home.testimonialsHeading}
             </motion.h2>
           </motion.div>
           <motion.div
@@ -511,13 +512,13 @@ export default function HomePage() {
             variants={stagger}
             className="grid grid-cols-1 md:grid-cols-3 gap-7"
           >
-            {testimonials.map((t) => (
+            {testimonials.map((testimonial) => (
               <motion.div
-                key={t.name}
+                key={testimonial.name}
                 variants={fadeUp}
                 whileHover={{ y: -5 }}
                 className="bg-card border border-border rounded-lg p-7 flex flex-col gap-4"
-                data-testid={`card-testimonial-${t.name.toLowerCase().replace(/\s+|\./g, "-")}`}
+                data-testid={`card-testimonial-${testimonial.name.toLowerCase().replace(/\s+|\./g, "-")}`}
               >
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -525,15 +526,15 @@ export default function HomePage() {
                   ))}
                 </div>
                 <blockquote className="text-muted-foreground text-sm leading-relaxed italic flex-1">
-                  "{t.quote}"
+                  "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center gap-3 pt-2 border-t border-border">
                   <div className="w-10 h-10 rounded-full bg-[#0A2342] flex items-center justify-center text-[#D4AF37] font-bold text-sm">
-                    {t.initials}
+                    {testimonial.initials}
                   </div>
                   <div>
-                    <div className="font-semibold text-foreground text-sm">{t.name}</div>
-                    <div className="text-muted-foreground text-xs">{t.role}</div>
+                    <div className="font-semibold text-foreground text-sm">{testimonial.name}</div>
+                    <div className="text-muted-foreground text-xs">{testimonial.role}</div>
                   </div>
                 </div>
               </motion.div>
@@ -552,10 +553,10 @@ export default function HomePage() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
-              Ready to Source Premium Indian Jewellery?
+              {t.home.ctaHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-white/60 mb-10 text-lg">
-              Get in touch today for pricing, catalogues, and export inquiries.
+              {t.home.ctaSub}
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
@@ -565,7 +566,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer"
                   data-testid="button-download-catalogue"
                 >
-                  <Download className="w-4 h-4" /> Download Catalogue
+                  <Download className="w-4 h-4" /> {t.common.requestCatalogue}
                 </motion.span>
               </Link>
               <Link href="/contact">
@@ -575,7 +576,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 px-8 py-4 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-sm tracking-wide rounded hover:border-[#D4AF37] cursor-pointer"
                   data-testid="button-get-quote-cta"
                 >
-                  <MessageSquare className="w-4 h-4" /> Get a Quote
+                  <MessageSquare className="w-4 h-4" /> {t.common.getQuote}
                 </motion.span>
               </Link>
             </motion.div>

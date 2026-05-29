@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, Package, Shield, Clock, Award, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/components/layout/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -97,6 +98,7 @@ const badges = [
 ];
 
 export default function WhyUsPage() {
+  const { t } = useLanguage();
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -114,10 +116,10 @@ export default function WhyUsPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Our Advantage
+              {t.whyUs.label}
             </motion.span>
             <motion.h1 variants={fadeUp} className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
-              Why Choose ASHQ?
+              {t.whyUs.heading}
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
               Six compelling reasons why international buyers trust ASHQ as their preferred Indian jewellery supply partner.
@@ -192,10 +194,10 @@ export default function WhyUsPage() {
             className="text-center mb-14"
           >
             <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              Certifications & Compliance
+              {t.whyUs.trustLabel}
             </motion.span>
             <motion.h2 variants={fadeUp} className="text-4xl font-serif font-bold text-white">
-              Verified. Compliant. Trusted.
+              {t.whyUs.trustHeading}
             </motion.h2>
           </motion.div>
           <motion.div
@@ -234,10 +236,10 @@ export default function WhyUsPage() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-foreground mb-4">
-              Experience the ASHQ Difference
+              {t.whyUs.ctaHeading}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mb-8">
-              Join 1,000+ international buyers who trust ASHQ for their Indian imitation jewellery supply.
+              {t.whyUs.ctaSub}
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact">
@@ -245,7 +247,7 @@ export default function WhyUsPage() {
                   className="inline-flex items-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0A2342] font-bold text-sm tracking-wide rounded cursor-pointer hover:bg-[#c9a230] transition-colors"
                   data-testid="button-partner-with-us"
                 >
-                  Partner with ASHQ
+                  {t.common.contactUs}
                 </span>
               </Link>
             </motion.div>
