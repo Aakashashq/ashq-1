@@ -110,13 +110,13 @@ export default function AboutPage() {
                 {t.about.storyHeading}
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                ASHQ is a proprietorship merchant export firm established in Mumbai, Maharashtra, specializing in the sourcing, quality inspection, and international export of premium imitation jewellery. We are not a manufacturer — we are a merchant exporter with an extensive network of verified suppliers across India's leading jewellery production hubs.
+                {t.about.storyP1}
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Our clients include importers, wholesalers, distributors, and retail chains in Europe, the Middle East, North America, Southeast Asia, and Africa. We handle the complete export process — from product sourcing and quality control to packaging, documentation, and international logistics.
+                {t.about.storyP2}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Registered under India's Foreign Trade Policy with a valid IEC (Import Export Code), we operate with full regulatory compliance, ensuring smooth customs clearance and transparent transactions for every buyer.
+                {t.about.storyP3}
               </p>
             </motion.div>
           </div>
