@@ -24,19 +24,6 @@ const benefits = [
     ],
   },
   {
-    icon: Globe,
-    title: "Export Experience",
-    stat: "15+",
-    statLabel: "years of merchant export",
-    desc: "Over a decade and a half of experience navigating India's export ecosystem — from the Foreign Trade Policy to freight forwarding.",
-    points: [
-      "15+ years of active merchant export",
-      "Deep knowledge of Indian export compliance",
-      "Established freight and customs relationships",
-      "Fluent in international trade documentation",
-    ],
-  },
-  {
     icon: Package,
     title: "Reliable Supply Chain",
     stat: "200+",
@@ -94,7 +81,7 @@ const badges = [
   { title: "IEC Registered", desc: "Valid Import Export Code under India's DGFT" },
   { title: "GST Compliant", desc: "Fully registered and compliant with Indian GST regulations" },
   { title: "MSME Recognized", desc: "Recognized small business under India's MSME framework" },
-  { title: "FEMA Compliant", desc: "All foreign exchange transactions in compliance with FEMA" },
+  { title: "FIEO Member", desc: "Member of the Federation of Indian Export Organisations" },
 ];
 
 export default function WhyUsPage() {

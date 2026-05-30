@@ -18,7 +18,7 @@ const services = [
       "Single-window export handling",
       "IEC-backed legal export operations",
       "Multi-currency invoicing",
-      "FEMA-compliant transactions",
+      "FIEO member — Federation of Indian Export Organisations",
     ],
   },
   {

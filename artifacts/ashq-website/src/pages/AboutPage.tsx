@@ -84,7 +84,7 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0D5C34] to-transparent">
                   <div className="flex gap-6">
                     <div className="text-center">
-                      <div className="text-2xl font-serif font-bold text-[#D4AF37]">2009</div>
+                      <div className="text-2xl font-serif font-bold text-[#D4AF37]">2025</div>
                       <div className="text-white/50 text-xs">Established</div>
                     </div>
                     <div className="text-center">
@@ -238,7 +238,7 @@ export default function AboutPage() {
               {[
                 { label: "Countries Exported To", value: "30+" },
                 { label: "Product Variants", value: "500+" },
-                { label: "Years of Export Experience", value: "15+" },
+                { label: "FIEO Member", value: "✓" },
                 { label: "Verified Suppliers", value: "200+" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white/5 border border-[#D4AF37]/20 rounded-lg p-6 flex items-center justify-between">

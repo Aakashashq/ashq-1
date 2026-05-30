@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
 import {
@@ -16,36 +16,6 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-function useCounter(target: number, duration = 2000, active = false) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let start = 0;
-    const step = Math.ceil(target / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(timer); }
-      else setCount(start);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [active, target, duration]);
-  return count;
-}
-
-function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const count = useCounter(value, 1800, inView);
-  return (
-    <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37]">
-        {count}{suffix}
-      </div>
-      <div className="mt-2 text-white/60 text-sm tracking-wide uppercase">{label}</div>
-    </div>
-  );
-}
-
 const categories = [
   { name: "Earrings", desc: "Studs, drops, hoops, and traditional jhumkas for every occasion.", icon: "◇" },
   { name: "Necklaces", desc: "Chains, chokers, layered sets, and statement pieces.", icon: "◈" },
@@ -59,7 +29,7 @@ const categories = [
 
 const whyUsItems = [
   { icon: TrendingUp, title: "Competitive Pricing", desc: "Factory-direct pricing without quality compromise. Best value in the Indian imitation jewellery export market." },
-  { icon: Globe, title: "Export Experience", desc: "15+ years of merchant export expertise serving buyers across Europe, the Middle East, and Southeast Asia." },
+  { icon: Globe, title: "Global Reach", desc: "Serving buyers across Europe, the Middle East, Southeast Asia, North America, and Africa. Direct export from Mumbai." },
   { icon: Package, title: "Reliable Supply Chain", desc: "Strong manufacturer network across Mumbai, Gujarat, and Rajasthan ensures consistent availability." },
   { icon: Shield, title: "Quality Assurance", desc: "Rigorous pre-shipment quality inspection on every order. We stand behind what we ship." },
   { icon: Clock, title: "Timely Delivery", desc: "Committed delivery timelines with regular updates. Sea and air freight options available." },
@@ -99,8 +69,6 @@ const exportRegions = [
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const statsRef = useRef(null);
-  const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
   const whyRef = useRef(null);
   const whyInView = useInView(whyRef, { once: true, margin: "-80px" });
   const catRef = useRef(null);
@@ -212,22 +180,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section ref={statsRef} className="bg-[#061e10] py-16 border-y border-[#D4AF37]/20">
-        <div className="max-w-5xl mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={statsInView ? "visible" : "hidden"}
-            variants={stagger}
-            className="grid grid-cols-2 md:grid-cols-4 gap-10"
-          >
-            <motion.div variants={fadeUp}><StatCounter value={500} suffix="+" label={t.home.statProducts} /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={30} suffix="+" label={t.home.statCountries} /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={1000} suffix="+" label={t.home.statClients} /></motion.div>
-            <motion.div variants={fadeUp}><StatCounter value={15} suffix="+" label={t.home.statYears} /></motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Company Intro */}
       <section className="py-20 bg-background">
@@ -244,7 +196,7 @@ export default function HomePage() {
                 India's Trusted Imitation Jewellery Export Partner
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Based in the heart of Mumbai's thriving jewellery trade, ASHQ is a proprietorship merchant export firm with over 15 years of experience connecting international buyers with India's finest imitation jewellery artisans.
+                Based in the heart of Mumbai's thriving jewellery trade, ASHQ is a manufacturer of imitation jewellery and a registered merchant export firm connecting international buyers with India's finest jewellery and products on demand.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 From intricate bridal sets to contemporary fashion jewellery, we source and export across 30+ countries — handling everything from quality inspection and documentation to packaging and international logistics.
