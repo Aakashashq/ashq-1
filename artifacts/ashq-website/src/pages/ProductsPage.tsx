@@ -20,6 +20,7 @@ const products = [
     details: ["Available in gold-plated, silver-finish, and oxidized", "Size range: 1cm – 12cm", "MOQ: 100 pairs per design"],
     icon: "◇",
     gradient: "from-[#0D5C34] to-[#1a3a5c]",
+    image: "/products/earrings.jpg",
   },
   {
     name: "Necklaces",
@@ -28,6 +29,7 @@ const products = [
     details: ["Length range: 16\" – 40\"", "Gold, silver, and rose gold finishes", "MOQ: 50 pieces per design"],
     icon: "◈",
     gradient: "from-[#1a3a5c] to-[#0D5C34]",
+    image: "/products/necklaces.jpg",
   },
   {
     name: "Bangles",
@@ -36,6 +38,7 @@ const products = [
     details: ["Standard sizes 2/2 – 2/12", "Lacquer, meenakari, and plain finishes", "MOQ: 50 sets"],
     icon: "○",
     gradient: "from-[#0D5C34] to-[#0a3d21]",
+    image: "/products/bangles.jpg",
   },
   {
     name: "Bracelets",
@@ -44,6 +47,7 @@ const products = [
     details: ["Adjustable and fixed sizes available", "Lobster clasp and toggle clasp options", "MOQ: 100 pieces"],
     icon: "◇",
     gradient: "from-[#0a3d21] to-[#0D5C34]",
+    image: "/products/bracelets.jpg",
   },
   {
     name: "Rings",
@@ -52,6 +56,7 @@ const products = [
     details: ["Adjustable and standard sized", "Rhinestone, pearl, enamel embellishments", "MOQ: 100 pieces"],
     icon: "◯",
     gradient: "from-[#0D5C34] to-[#1a3a5c]",
+    image: "/products/rings.jpg",
   },
   {
     name: "Bridal Jewellery Sets",
@@ -60,6 +65,7 @@ const products = [
     details: ["Full sets and partial sets", "Heavy and light-weight options", "MOQ: 25 sets per design"],
     icon: "★",
     gradient: "from-[#1a3a5c] to-[#0a3d21]",
+    image: "/products/bridal-sets.jpg",
   },
   {
     name: "Fashion Jewellery",
@@ -68,6 +74,7 @@ const products = [
     details: ["Seasonal trend forecasting included", "Rapid turnaround for fast-fashion buyers", "MOQ: 100 pieces"],
     icon: "◈",
     gradient: "from-[#0a3d21] to-[#0D5C34]",
+    image: "/products/fashion.jpg",
   },
   {
     name: "Custom Designs",
@@ -76,6 +83,7 @@ const products = [
     details: ["3D rendering available on request", "Private labelling and branded packaging", "MOQ: Negotiable"],
     icon: "◆",
     gradient: "from-[#0D5C34] to-[#0a3d21]",
+    image: "/products/custom.jpg",
   },
 ];
 
@@ -166,19 +174,30 @@ export default function ProductsPage() {
                   data-testid={`card-product-${product.name.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   <div className={`h-48 bg-gradient-to-br ${product.gradient} flex items-center justify-center relative overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-15">
-                      <svg width="100%" height="100%">
-                        <defs>
-                          <pattern id={`pp-${product.name}`} x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <path d="M15 2 L28 15 L15 28 L2 15 Z" fill="none" stroke="#D4AF37" strokeWidth="0.8" />
-                          </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill={`url(#pp-${product.name})`} />
-                      </svg>
-                    </div>
-                    <div className="relative text-center">
-                      <span className="text-5xl text-[#D4AF37] opacity-70">{product.icon}</span>
-                    </div>
+                    {product.image ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 opacity-15">
+                          <svg width="100%" height="100%">
+                            <defs>
+                              <pattern id={`pp-${product.name}`} x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                                <path d="M15 2 L28 15 L15 28 L2 15 Z" fill="none" stroke="#D4AF37" strokeWidth="0.8" />
+                              </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill={`url(#pp-${product.name})`} />
+                          </svg>
+                        </div>
+                        <div className="relative text-center">
+                          <span className="text-5xl text-[#D4AF37] opacity-70">{product.icon}</span>
+                        </div>
+                      </>
+                    )}
                     <div className="absolute top-3 right-3">
                       <span className={`text-xs px-2 py-1 rounded-full capitalize font-medium ${
                         product.category === "custom"
