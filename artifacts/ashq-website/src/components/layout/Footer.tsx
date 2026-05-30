@@ -13,7 +13,7 @@ export function Footer() {
     { label: t.nav.products, href: "/products" },
     { label: t.nav.exportServices, href: "/export-services" },
     { label: t.footer.whyChooseUs, href: "/why-us" },
-    { label: t.nav.gallery, href: "/gallery" },
+    { label: t.nav.blog, href: "/blog" },
     { label: t.footer.contactNav, href: "/contact" },
   ];
 

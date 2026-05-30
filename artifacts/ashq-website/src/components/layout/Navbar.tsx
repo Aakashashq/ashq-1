@@ -27,7 +27,7 @@ export function Navbar() {
     { label: t.nav.products, href: "/products" },
     { label: t.nav.exportServices, href: "/export-services" },
     { label: t.nav.whyUs, href: "/why-us" },
-    { label: t.nav.gallery, href: "/gallery" },
+    { label: t.nav.blog, href: "/blog" },
     { label: t.nav.contact, href: "/contact" },
   ];
 

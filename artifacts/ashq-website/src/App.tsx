@@ -14,7 +14,7 @@ import AboutPage from "@/pages/AboutPage";
 import ProductsPage from "@/pages/ProductsPage";
 import ExportServicesPage from "@/pages/ExportServicesPage";
 import WhyUsPage from "@/pages/WhyUsPage";
-import GalleryPage from "@/pages/GalleryPage";
+import BlogPage from "@/pages/BlogPage";
 import ContactPage from "@/pages/ContactPage";
 
 const queryClient = new QueryClient();
@@ -30,7 +30,7 @@ function Router() {
           <Route path="/products" component={ProductsPage} />
           <Route path="/export-services" component={ExportServicesPage} />
           <Route path="/why-us" component={WhyUsPage} />
-          <Route path="/gallery" component={GalleryPage} />
+          <Route path="/blog" component={BlogPage} />
           <Route path="/contact" component={ContactPage} />
           <Route component={NotFound} />
         </Switch>
