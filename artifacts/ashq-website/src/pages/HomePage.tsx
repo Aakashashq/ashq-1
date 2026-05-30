@@ -17,14 +17,14 @@ const stagger = {
 };
 
 const categories = [
-  { name: "Earrings", desc: "Studs, drops, hoops, and traditional jhumkas for every occasion.", icon: "◇" },
-  { name: "Necklaces", desc: "Chains, chokers, layered sets, and statement pieces.", icon: "◈" },
-  { name: "Bangles", desc: "Traditional and contemporary bangle designs in sets and singles.", icon: "○" },
-  { name: "Bracelets", desc: "Charm, link, and tennis bracelet styles for global markets.", icon: "◇" },
-  { name: "Rings", desc: "Fashion and statement rings in adjustable and fixed sizes.", icon: "◯" },
-  { name: "Bridal Sets", desc: "Complete bridal jewellery sets for South Asian weddings.", icon: "★" },
-  { name: "Fashion Jewellery", desc: "Trendy seasonal collections for fast-fashion markets.", icon: "◈" },
-  { name: "Custom Designs", desc: "OEM/ODM manufacturing per buyer specifications.", icon: "◆" },
+  { name: "Bridal Jewellery Sets", desc: "Complete multi-piece bridal sets — necklace, earrings, maang tikka. Traditional South Asian craftsmanship.", icon: "★", image: "/products/bridal-jewellery-set.jpg" },
+  { name: "Kundan Sets", desc: "Kundan polki necklace and earring sets with semi-precious stones and traditional goldwork.", icon: "◈", image: "/products/kundan-bridal-set.webp" },
+  { name: "Festive Sets", desc: "Festive necklace and earring sets with colourful stones — perfect for occasion and party wear.", icon: "◇", image: "/products/festive-gold-set.png" },
+  { name: "Choker Sets", desc: "Gold-plated choker necklaces with matching jhumka earrings and tikka. Heavy-work premium finish.", icon: "◯", image: "/products/gold-choker-set.webp" },
+  { name: "Jhumka Earrings", desc: "Traditional gold and oxidized jhumka earrings — from lightweight daily wear to heavy bridal styles.", icon: "◇", image: "/products/jhumka-earrings-gold.jpg" },
+  { name: "Statement Earrings", desc: "Crystal chandelier, pearl drop, and oxidized teardrop earrings for western and fashion markets.", icon: "◆", image: "/products/chandelier-earrings.webp" },
+  { name: "Pendant Necklaces", desc: "Kundan and pearl pendant necklaces with matching earrings. Versatile occasion and daily wear pieces.", icon: "◈", image: "/products/kundan-pendant-necklace.webp" },
+  { name: "Chain Necklaces", desc: "Minimalist layered gold chain necklaces with contemporary motifs for western and fashion markets.", icon: "○", image: "/products/layered-chain-necklace.webp" },
 ];
 
 const whyUsItems = [
@@ -318,20 +318,14 @@ export default function HomePage() {
                 data-testid={`card-product-${cat.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <div className="h-40 bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-20">
-                    <svg width="100%" height="100%">
-                      <defs>
-                        <pattern id={`p-${cat.name}`} x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                          <path d="M15 2 L28 15 L15 28 L2 15 Z" fill="none" stroke="#D4AF37" strokeWidth="0.8" />
-                        </pattern>
-                      </defs>
-                      <rect width="100%" height="100%" fill={`url(#p-${cat.name})`} />
-                    </svg>
-                  </div>
-                  <div className="relative text-center">
-                    <span className="text-4xl text-[#D4AF37] opacity-80">{cat.icon}</span>
-                    <Diamond className="w-8 h-8 text-[#D4AF37]/40 absolute -bottom-2 -right-2" />
-                  </div>
+                  {cat.image && (
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D5C34]/60 to-transparent" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-serif font-bold text-foreground text-base mb-2">{cat.name}</h3>
