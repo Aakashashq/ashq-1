@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Package, Search, Shield, Box, FileText, Truck, ChevronRight, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -103,6 +104,18 @@ const steps = [
 
 export default function ExportServicesPage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "Export Services — Import Imitation Jewellery from India | ASHQ Shines Worldwide",
+    description: "End-to-end jewellery export services from India. Sourcing, quality inspection, export documentation, and international logistics. OEM, private label, and custom jewellery manufacturing. Import imitation jewellery from India with ease.",
+    keywords: [
+      "Import Imitation Jewellery from India", "Imitation Jewellery Exporter India",
+      "Jewellery Export House India", "OEM Fashion Jewellery Manufacturer",
+      "Private Label Jewellery Manufacturer", "Custom Jewellery Manufacturer India",
+      "Costume Jewellery Exporter", "merchant exporter jewellery India",
+      "jewellery export documentation India", "fashion jewellery export services",
+    ],
+    canonicalPath: "/export-services",
+  });
   return (
     <div className="pt-20">
       {/* Hero */}

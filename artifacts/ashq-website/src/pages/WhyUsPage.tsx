@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { TrendingUp, Globe, Package, Shield, Clock, Award, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -86,6 +87,18 @@ const badges = [
 
 export default function WhyUsPage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "Why Choose ASHQ — Reliable Jewellery Supplier for Importers & Distributors",
+    description: "Why international buyers choose ASHQ Shines Worldwide: competitive pricing, quality assurance, timely delivery, and certified export compliance. Your trusted B2B fashion jewellery supplier and imitation jewellery wholesale partner.",
+    keywords: [
+      "Jewellery Supplier for Retail Stores", "Jewellery Supplier for Importers",
+      "Jewellery Supplier for Distributors", "B2B Fashion Jewellery Supplier",
+      "Wholesale Imitation Jewellery Supplier", "Fashion Jewellery Wholesale Supplier",
+      "reliable imitation jewellery exporter India", "trusted artificial jewellery supplier",
+      "quality fashion jewellery India", "IEC GST MSME FIEO jewellery exporter",
+    ],
+    canonicalPath: "/why-us",
+  });
   return (
     <div className="pt-20">
       {/* Hero */}

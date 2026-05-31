@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Target, Eye, Award, Package, Globe, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -29,6 +30,18 @@ const capabilities = [
 
 export default function AboutPage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "About ASHQ — Artificial Jewellery Manufacturer India | OEM & Private Label",
+    description: "ASHQ Shines Worldwide is a Mumbai-based artificial jewellery manufacturer and fashion jewellery manufacturer. We offer OEM, private label, and custom jewellery manufacturing for global importers. IEC · GST · MSME · FIEO registered.",
+    keywords: [
+      "Artificial Jewellery Manufacturer India", "Fashion Jewellery Manufacturer India",
+      "Custom Jewellery Manufacturer India", "OEM Fashion Jewellery Manufacturer",
+      "Private Label Jewellery Manufacturer", "Indian Jewellery Export Company",
+      "Jewellery Export House India", "Mumbai jewellery manufacturer",
+      "imitation jewellery manufacturer Mumbai", "costume jewellery manufacturer India",
+    ],
+    canonicalPath: "/about",
+  });
   return (
     <div className="pt-20">
       {/* Hero */}

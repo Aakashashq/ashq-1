@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Diamond, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -111,6 +112,20 @@ const filterValues: { value: Category; label: string }[] = [
 
 export default function ProductsPage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "Wholesale Imitation Jewellery — Earrings, Necklaces, Bangles | ASHQ India",
+    description: "Browse ASHQ's wholesale imitation jewellery catalogue — earrings, necklaces, bangles, bracelets, rings, bridal sets, and fashion jewellery. Bulk supplier for importers, retail stores, and distributors worldwide.",
+    keywords: [
+      "Wholesale Imitation Jewellery Supplier", "Bulk Fashion Jewellery Supplier",
+      "Fashion Jewellery Wholesale Supplier", "Costume Jewellery Exporter",
+      "Wholesale Artificial Jewellery", "Jewellery Supplier for Retail Stores",
+      "Jewellery Supplier for Importers", "Jewellery Supplier for Distributors",
+      "B2B Fashion Jewellery Supplier", "wholesale earrings India",
+      "wholesale necklaces India", "wholesale bangles supplier India",
+      "imitation jewellery bridal sets wholesale", "fashion jewellery bulk order India",
+    ],
+    canonicalPath: "/products",
+  });
   const [active, setActive] = useState<Category>("all");
 
   const filtered = active === "all" ? products : products.filter((p) => p.category === active);

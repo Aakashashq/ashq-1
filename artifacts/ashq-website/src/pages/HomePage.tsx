@@ -6,6 +6,7 @@ import {
   Award, TrendingUp, ChevronRight, ArrowRight, Download, MessageSquare
 } from "lucide-react";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -69,6 +70,20 @@ const exportRegions = [
 
 export default function HomePage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "ASHQ Shines Worldwide — Imitation Jewellery Exporter India | Mumbai",
+    description: "Mumbai-based imitation jewellery manufacturer and merchant exporter. Wholesale artificial jewellery, fashion jewellery & costume jewellery supplier for importers, wholesalers, and distributors worldwide. IEC · GST · MSME · FIEO.",
+    keywords: [
+      "Imitation Jewellery Exporter India", "Artificial Jewellery Exporter India",
+      "Fashion Jewellery Exporter India", "Wholesale Imitation Jewellery Supplier",
+      "Costume Jewellery Exporter", "Indian Jewellery Export Company",
+      "Bulk Fashion Jewellery Supplier", "Jewellery Export House India",
+      "Import Imitation Jewellery from India", "Wholesale Artificial Jewellery",
+      "B2B Fashion Jewellery Supplier", "Mumbai Jewellery Exporter",
+      "ASHQ Shines Worldwide", "imitation jewellery wholesale India",
+    ],
+    canonicalPath: "/",
+  });
   const whyRef = useRef(null);
   const whyInView = useInView(whyRef, { once: true, margin: "-80px" });
   const catRef = useRef(null);

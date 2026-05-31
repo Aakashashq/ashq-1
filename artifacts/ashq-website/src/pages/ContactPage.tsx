@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -42,6 +43,17 @@ const budgetRanges = ["Under $1,000", "$1,000 – $5,000", "$5,000 – $10,000",
 
 export default function ContactPage() {
   const { t } = useLanguage();
+  useSEO({
+    title: "Contact ASHQ — Import Imitation Jewellery from India | Get a Quote",
+    description: "Contact ASHQ Shines Worldwide to import imitation jewellery from India. Send a wholesale inquiry, request a product catalogue, or get a quote. Mumbai-based B2B fashion jewellery supplier for importers and distributors.",
+    keywords: [
+      "Import Imitation Jewellery from India", "B2B Fashion Jewellery Supplier",
+      "Jewellery Supplier for Importers", "Wholesale Imitation Jewellery Supplier",
+      "contact imitation jewellery exporter India", "wholesale jewellery inquiry Mumbai",
+      "get quote fashion jewellery India", "artificial jewellery export inquiry",
+    ],
+    canonicalPath: "/contact",
+  });
   const { toast } = useToast();
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
