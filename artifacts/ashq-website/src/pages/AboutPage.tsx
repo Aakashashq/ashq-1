@@ -1,14 +1,14 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Target, Eye, Award, Package, Globe, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import { useSEO } from "@/hooks/use-seo";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
+const stagger: Variants = { visible: { transition: { staggerChildren: 0.12 } } };
 
 const values = [
   { icon: Target, title: "Precision", desc: "Every order is handled with meticulous attention to detail, from sourcing to delivery." },

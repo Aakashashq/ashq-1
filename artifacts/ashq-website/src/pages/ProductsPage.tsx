@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Diamond, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import { useSEO } from "@/hooks/use-seo";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
+const stagger: Variants = { visible: { transition: { staggerChildren: 0.1 } } };
 
 type Category = "all" | "sets" | "individual";
 

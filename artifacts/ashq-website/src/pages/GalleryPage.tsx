@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ZoomIn, X, Diamond } from "lucide-react";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.07 } } };
+const stagger: Variants = { visible: { transition: { staggerChildren: 0.07 } } };
 
 type GalleryFilter = "all" | "earrings" | "necklaces" | "sets" | "custom";
 

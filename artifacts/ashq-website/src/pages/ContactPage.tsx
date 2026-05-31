@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -12,11 +12,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import { useSEO } from "@/hooks/use-seo";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
+const stagger: Variants = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),

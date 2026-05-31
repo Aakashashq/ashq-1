@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { Link, useParams } from "wouter";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Calendar, Clock, User, ChevronRight, ArrowLeft, Tag, BookOpen } from "lucide-react";
 import { getBlogPostBySlug, getRecentPosts } from "@/lib/blogData";
 import { useSEO } from "@/hooks/use-seo";
 import NotFound from "@/pages/not-found";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 };

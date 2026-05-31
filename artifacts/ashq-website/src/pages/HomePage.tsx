@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Link } from "wouter";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import {
   Diamond, Globe, Shield, Clock, Package, Star,
   Award, TrendingUp, ChevronRight, ArrowRight, Download, MessageSquare
@@ -8,12 +8,12 @@ import {
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import { useSEO } from "@/hooks/use-seo";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const stagger = {
+const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 

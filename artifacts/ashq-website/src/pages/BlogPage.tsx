@@ -1,16 +1,16 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "wouter";
 import { Calendar, Clock, User, BookOpen, ChevronRight, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/blogData";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 import { useSEO } from "@/hooks/use-seo";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 };
