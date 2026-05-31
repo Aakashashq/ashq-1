@@ -26,11 +26,11 @@ const benefits = [
   {
     icon: Package,
     title: "Reliable Supply Chain",
-    stat: "200+",
-    statLabel: "verified suppliers",
-    desc: "We have built and vetted a network of over 200 manufacturers across India's top jewellery production hubs.",
+    stat: "Multi",
+    statLabel: "state sourcing network",
+    desc: "We work with a vetted network of manufacturers across India's top jewellery production hubs to ensure consistent availability.",
     points: [
-      "200+ verified manufacturing partners",
+      "Verified manufacturing partners across India",
       "Mumbai, Gujarat, and Rajasthan sourcing hubs",
       "Backup suppliers for every product category",
       "Seasonal capacity planning",

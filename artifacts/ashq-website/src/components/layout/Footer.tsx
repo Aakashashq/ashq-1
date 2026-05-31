@@ -37,6 +37,7 @@ export function Footer() {
                 <div>
                   <div className="text-xl font-serif font-bold text-[#D4AF37] tracking-widest">ASHQ</div>
                   <div className="text-[9px] text-white/50 tracking-[0.2em] uppercase">{t.nav.merchantExports}</div>
+                  <div className="text-[8px] text-[#D4AF37]/60 tracking-[0.15em] uppercase">Shines Worldwide</div>
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
@@ -44,7 +45,7 @@ export function Footer() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/919152596531"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 flex items-center justify-center rounded-full bg-white/10 hover:bg-[#25D366] transition-colors text-white"
@@ -105,16 +106,16 @@ export function Footer() {
                 <li className="flex gap-3">
                   <MapPin className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
                   <span className="text-white/60 text-sm leading-relaxed">
-                    Room No. 4, Nazir Mohd Chawl, NR. Ramesh Hotel, Daftary Road, Kurar Village, Malad East, Mumbai, Maharashtra 400097
+                    Malad (E), Mumbai – 400097, Maharashtra, India
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <Phone className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
-                  <span className="text-white/60 text-sm">[Add Contact Number]</span>
+                  <a href="tel:+919152596531" className="text-white/60 text-sm hover:text-[#D4AF37] transition-colors">+91 91525 96531</a>
                 </li>
                 <li className="flex gap-3">
                   <Mail className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />
-                  <span className="text-white/60 text-sm">[Add Email Address]</span>
+                  <a href="mailto:95ashq@gmail.com" className="text-white/60 text-sm hover:text-[#D4AF37] transition-colors">95ashq@gmail.com</a>
                 </li>
                 <li className="flex gap-3">
                   <Clock className="w-4 h-4 text-[#D4AF37] mt-0.5 shrink-0" />

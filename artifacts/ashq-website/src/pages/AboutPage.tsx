@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Diamond, Target, Eye, Award, Package, Globe, CheckCircle } from "lucide-react";
+import { Target, Eye, Award, Package, Globe, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/components/layout/LanguageProvider";
 
@@ -17,7 +17,7 @@ const values = [
 ];
 
 const capabilities = [
-  "Sourcing from 200+ verified manufacturers across Mumbai, Gujarat, and Rajasthan",
+  "Sourcing from verified manufacturers across Mumbai, Gujarat, and Rajasthan",
   "Quality inspection and grading before every shipment",
   "Export documentation: GR forms, RCMC, Shipping Bills, Country of Origin certificates",
   "Sea and air freight coordination with trusted logistics partners",
@@ -70,7 +70,7 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20">
+                <div className="absolute inset-0 opacity-10">
                   <svg width="100%" height="100%">
                     <defs>
                       <pattern id="overview-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -80,20 +80,32 @@ export default function AboutPage() {
                     <rect width="100%" height="100%" fill="url(#overview-grid)" />
                   </svg>
                 </div>
-                <Diamond className="w-36 h-36 text-[#D4AF37] opacity-20" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#0D5C34] to-transparent">
-                  <div className="flex gap-6">
+                <div className="flex flex-col items-center justify-center gap-4 px-8">
+                  <img
+                    src="/logo.jpg"
+                    alt="ASHQ Shines Worldwide — Mumbai Jewellery Exporter"
+                    className="w-32 h-32 rounded-full object-cover ring-4 ring-[#D4AF37]/40 shadow-2xl"
+                  />
+                  <div className="text-center">
+                    <div className="text-2xl font-serif font-bold text-[#D4AF37] tracking-widest">ASHQ</div>
+                    <div className="text-white/60 text-xs tracking-[0.2em] uppercase">Shines Worldwide</div>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-[#0D5C34] to-transparent">
+                  <div className="flex gap-4 justify-center">
                     <div className="text-center">
-                      <div className="text-2xl font-serif font-bold text-[#D4AF37]">2025</div>
-                      <div className="text-white/50 text-xs">Established</div>
+                      <div className="text-xl font-serif font-bold text-[#D4AF37]">2025</div>
+                      <div className="text-white/50 text-[10px]">Established</div>
                     </div>
+                    <div className="w-px bg-[#D4AF37]/20" />
                     <div className="text-center">
-                      <div className="text-2xl font-serif font-bold text-[#D4AF37]">Mumbai</div>
-                      <div className="text-white/50 text-xs">Headquarters</div>
+                      <div className="text-xl font-serif font-bold text-[#D4AF37]">Mumbai</div>
+                      <div className="text-white/50 text-[10px]">Headquarters</div>
                     </div>
+                    <div className="w-px bg-[#D4AF37]/20" />
                     <div className="text-center">
-                      <div className="text-2xl font-serif font-bold text-[#D4AF37]">IEC</div>
-                      <div className="text-white/50 text-xs">Registered</div>
+                      <div className="text-xl font-serif font-bold text-[#D4AF37]">IEC</div>
+                      <div className="text-white/50 text-[10px]">Registered</div>
                     </div>
                   </div>
                 </div>
@@ -236,10 +248,10 @@ export default function AboutPage() {
               className="space-y-5"
             >
               {[
-                { label: "Countries Exported To", value: "30+" },
-                { label: "Product Variants", value: "500+" },
+                { label: "GST Registered", value: "✓" },
+                { label: "IEC Registered", value: "✓" },
+                { label: "MSME Recognized", value: "✓" },
                 { label: "FIEO Member", value: "✓" },
-                { label: "Verified Suppliers", value: "200+" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white/5 border border-[#D4AF37]/20 rounded-lg p-6 flex items-center justify-between">
                   <span className="text-white/70 text-sm">{stat.label}</span>

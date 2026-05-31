@@ -116,10 +116,10 @@ export default function ContactPage() {
                 {
                   icon: MapPin,
                   title: "Address",
-                  content: "Room No. 4, Nazir Mohd Chawl, NR. Ramesh Hotel, Daftary Road, Kurar Village, Malad East, Suburban, Malad East, Mumbai, Maharashtra, India, 400097",
+                  content: "Malad (E), Mumbai – 400097, Maharashtra, India",
                 },
-                { icon: Phone, title: "Phone", content: "[Add Contact Number]" },
-                { icon: Mail, title: "Email", content: "[Add Email Address]" },
+                { icon: Phone, title: "Phone / WhatsApp", content: "+91 91525 96531" },
+                { icon: Mail, title: "Email", content: "95ashq@gmail.com" },
                 { icon: Clock, title: "Working Hours", content: "Monday – Saturday: 10:00 AM – 7:00 PM IST" },
               ].map((item) => (
                 <motion.div
