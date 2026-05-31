@@ -130,7 +130,7 @@ export default function HomePage() {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.1] mb-6"
             >
               {t.home.heroHeading1}{" "}
               <span className="text-[#D4AF37]">{t.home.heroHeading2}</span> &{" "}
