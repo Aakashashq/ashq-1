@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Calendar, Clock, User, Droplets, Archive, Sparkles, ChevronRight, BookOpen } from "lucide-react";
+import { Calendar, Clock, User, BookOpen, ChevronRight, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/lib/blogData";
 import { useLanguage } from "@/components/layout/LanguageProvider";
+import { useSEO } from "@/hooks/use-seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -10,30 +12,28 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
-
-const tips = [
-  {
-    icon: Droplets,
-    title: "Keep it Dry",
-    body: "Always remove your artificial jewellery before showering, swimming, or applying perfume. Moisture and chemicals can cause plating to tarnish quickly.",
-  },
-  {
-    icon: Archive,
-    title: "Store Properly",
-    body: "Store each piece in an airtight ziplock bag or a separate fabric-lined box. Keeping them separate prevents scratches and tangles.",
-  },
-  {
-    icon: Sparkles,
-    title: "Gentle Cleaning",
-    body: "Clean your jewellery using a dry, soft cotton cloth after every wear to wipe away sweat and body oils. Avoid harsh liquid jewelry cleaners as they can strip the polish.",
-  },
-];
 
 export default function BlogPage() {
   const { t, language } = useLanguage();
   const isRTL = language === "ar";
+
+  useSEO({
+    title: "Blog – Jewellery Care & Export Insights | ASHQ Merchant Exports",
+    description:
+      "Expert tips, trade insights, and care guides for imitation jewellery buyers, importers, and wholesalers from ASHQ — a leading Indian jewellery exporter based in Mumbai.",
+    keywords: [
+      "imitation jewellery blog",
+      "jewellery care guide",
+      "fashion jewellery exporter",
+      "artificial jewellery supplier",
+      "Indian jewellery export",
+    ],
+    canonicalPath: "/blog",
+  });
+
+  const [featuredPost, ...restPosts] = blogPosts;
 
   return (
     <div className={isRTL ? "rtl" : "ltr"}>
@@ -58,120 +58,176 @@ export default function BlogPage() {
               Jewellery Care &amp; Insights
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/60 text-lg max-w-2xl mx-auto">
-              Expert tips, trade insights, and care guides from ASHQ's jewellery specialists.
+              Expert tips, trade insights, and care guides from ASHQ's jewellery specialists — serving importers, wholesalers, and retailers worldwide.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Blog post */}
-      <section className="py-16 bg-background">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.article
+      {/* Featured Post */}
+      <section className="py-12 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="bg-card border border-border rounded-xl overflow-hidden shadow-sm"
           >
-            {/* Article header banner */}
-            <div className="h-56 bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] relative overflow-hidden flex items-center justify-center">
-              <div className="absolute inset-0 opacity-15">
-                <svg width="100%" height="100%">
-                  <defs>
-                    <pattern id="post-banner-pat" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                      <path d="M15 2 L28 15 L15 28 L2 15 Z" fill="none" stroke="#D4AF37" strokeWidth="0.8" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#post-banner-pat)" />
-                </svg>
-              </div>
-              <div className="relative text-center px-6">
-                <Droplets className="w-12 h-12 text-[#D4AF37] mx-auto mb-3 opacity-90" />
-                <span className="text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase">Care Guide</span>
-              </div>
-            </div>
+            <motion.p variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase mb-5">
+              Latest Article
+            </motion.p>
 
-            {/* Article body */}
-            <div className="p-8 sm:p-10">
-              <motion.div variants={fadeUp}>
-                <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground mb-6">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
-                    May 2025
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
-                    3 min read
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-[#D4AF37]" />
-                    ASHQ Team
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4 leading-snug">
-                  💧 How to Make Your Jewellery Last
-                </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Imitation jewellery is a fantastic investment, but it needs a little TLC to keep it looking brand new.
-                  Follow these simple steps to preserve the finish, shine, and life of every piece.
-                </p>
-              </motion.div>
-
-              {/* Tips */}
-              <motion.div variants={stagger} className="space-y-6 mb-10">
-                {tips.map((tip) => (
-                  <motion.div
-                    key={tip.title}
-                    variants={fadeUp}
-                    className="flex gap-4 p-5 rounded-lg bg-[#F0FAF5] dark:bg-[#061e10] border border-[#0D5C34]/15 dark:border-[#D4AF37]/10"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-[#0D5C34] flex items-center justify-center shrink-0 mt-0.5">
-                      <tip.icon className="w-4.5 h-4.5 text-[#D4AF37]" strokeWidth={1.8} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{tip.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{tip.body}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* CTA */}
+            <Link href={`/blog/${featuredPost.slug}`}>
               <motion.div
                 variants={fadeUp}
-                className="border-t border-border pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                whileHover={{ y: -4 }}
+                className="group grid md:grid-cols-2 gap-0 bg-card border border-border rounded-xl overflow-hidden shadow-sm cursor-pointer"
               >
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">Interested in ASHQ Jewellery?</p>
-                  <p className="text-xs text-muted-foreground">Browse our catalogue or get in touch for bulk export inquiries.</p>
+                {/* Featured image */}
+                <div className="relative h-64 md:h-auto bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.imageAlt}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D5C34]/50 to-transparent" />
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#D4AF37] text-[#0D5C34] text-xs font-bold tracking-wide">
+                    {featuredPost.category}
+                  </span>
                 </div>
-                <div className="flex gap-3 shrink-0">
-                  <Link href="/products">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#0D5C34] text-[#D4AF37] text-sm font-semibold hover:bg-[#0a4828] transition-colors cursor-pointer whitespace-nowrap">
-                      View Products <ChevronRight className="w-3.5 h-3.5" />
+
+                {/* Featured content */}
+                <div className="p-8 sm:p-10 flex flex-col justify-center">
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground mb-4">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      {featuredPost.date}
                     </span>
-                  </Link>
-                  <Link href="/contact">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded border border-[#D4AF37] text-[#D4AF37] text-sm font-semibold hover:bg-[#D4AF37]/10 transition-colors cursor-pointer whitespace-nowrap">
-                      Contact Us
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      {featuredPost.readTime}
                     </span>
-                  </Link>
+                    <span className="flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      {featuredPost.author}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4 leading-snug group-hover:text-[#D4AF37] transition-colors">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {featuredPost.excerpt}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-[#D4AF37] text-sm font-semibold group-hover:gap-3 transition-all">
+                    Read Article <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </motion.div>
-            </div>
-          </motion.article>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
-          {/* More posts coming soon */}
+      {/* All Posts Grid */}
+      <section className="pb-20 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-10 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={stagger}
           >
-            <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
+            <motion.p variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+              All Articles
+            </motion.p>
+
+            <motion.div
+              variants={stagger}
+              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {restPosts.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <motion.article
+                    variants={fadeUp}
+                    whileHover={{ y: -5, boxShadow: "0 16px 40px rgba(0,0,0,0.10)" }}
+                    className="group h-full bg-card border border-border rounded-xl overflow-hidden shadow-sm cursor-pointer flex flex-col"
+                  >
+                    {/* Card image */}
+                    <div className="relative h-48 bg-gradient-to-br from-[#0D5C34] to-[#0a3d21] overflow-hidden shrink-0">
+                      <img
+                        src={post.image}
+                        alt={post.imageAlt}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0D5C34]/60 to-transparent" />
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#D4AF37]/90 text-[#0D5C34] text-[10px] font-bold tracking-wide">
+                        {post.category}
+                      </span>
+                    </div>
+
+                    {/* Card content */}
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-[#D4AF37]" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3 text-[#D4AF37]" />
+                          {post.readTime}
+                        </span>
+                      </div>
+
+                      <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-3 group-hover:text-[#D4AF37] transition-colors flex-1">
+                        {post.title}
+                      </h3>
+
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+
+                      <span className="inline-flex items-center gap-1 text-[#D4AF37] text-xs font-semibold group-hover:gap-2 transition-all mt-auto">
+                        Read More <ChevronRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </motion.article>
+                </Link>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-16 bg-[#F0FAF5] dark:bg-[#061e10]">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 text-muted-foreground text-sm mb-6">
               <BookOpen className="w-4 h-4 text-[#D4AF37]" />
               More articles coming soon
-            </div>
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+              Ready to Start Importing?
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              Looking for a reliable imitation jewellery exporter? ASHQ Merchant Exports ships premium fashion jewellery to 30+ countries. Contact us to request our catalogue or get a competitive quote.
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D5C34] text-[#D4AF37] font-semibold text-sm rounded hover:bg-[#0a4828] transition-colors cursor-pointer whitespace-nowrap">
+                  Contact Us Today <ChevronRight className="w-4 h-4" />
+                </span>
+              </Link>
+              <Link href="/products">
+                <span className="inline-flex items-center gap-2 px-6 py-3 border border-[#D4AF37] text-[#D4AF37] font-semibold text-sm rounded hover:bg-[#D4AF37]/10 transition-colors cursor-pointer whitespace-nowrap">
+                  View Products
+                </span>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
