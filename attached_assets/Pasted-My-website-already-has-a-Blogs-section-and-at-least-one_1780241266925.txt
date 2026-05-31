@@ -1,0 +1,101 @@
+My website already has a Blogs section and at least one blog post.
+
+DO NOT create a new website, new blog system, new layout, or separate project.
+
+Only add 5 new blog posts to my existing blog section and follow the existing blog design, styling, navigation, routing, and SEO structure already used in the project.
+
+Requirements:
+
+Create Blog:
+Title: Why Imitation Jewellery is Growing Worldwide
+
+Primary Export Keywords:
+
+imitation jewellery exporter
+fashion jewellery manufacturer
+artificial jewellery supplier
+costume jewellery exporter
+wholesale fashion jewellery
+
+Add a relevant product/jewellery image at the top.
+
+Create Blog:
+Title: India's Role in the Global Fashion Jewellery Market
+
+Primary Export Keywords:
+
+Indian jewellery exporter
+imitation jewellery manufacturer India
+fashion jewellery export company
+wholesale artificial jewellery India
+global jewellery supplier
+
+Add a relevant product/jewellery image at the top.
+
+Create Blog:
+Title: Manufacturing Process of Fashion Jewellery – Casting Method
+
+Primary Export Keywords:
+
+fashion jewellery manufacturing
+jewellery casting process
+imitation jewellery production
+jewellery manufacturer India
+jewellery export company
+
+Add a relevant product/jewellery image at the top.
+
+Create Blog:
+Title: How to Identify High-Quality Imitation Jewellery
+
+Primary Export Keywords:
+
+high quality imitation jewellery
+premium fashion jewellery supplier
+artificial jewellery exporter
+wholesale jewellery manufacturer
+fashion jewellery supplier
+
+Add a relevant product/jewellery image at the top.
+
+Create Blog:
+Title: How to Maintain Artificial Jewellery for Long Life
+
+Primary Export Keywords:
+
+artificial jewellery care
+imitation jewellery maintenance
+costume jewellery exporter
+fashion jewellery supplier
+imitation jewellery exporter
+
+Add a relevant product/jewellery image at the top.
+
+Content Requirements:
+
+300–500 words per blog
+Short and easy-to-read paragraphs
+SEO-friendly headings
+Professional export-focused content
+Meta Title
+Meta Description
+Image Alt Text
+Internal links to existing pages where relevant
+CTA at end:
+"Looking for a reliable imitation jewellery exporter? Contact us today."
+
+Technical Requirements:
+
+Use the existing blog component/template already present in the project
+Follow existing URL structure
+Do not modify homepage
+Do not create a separate blog system
+Reuse current styling and SEO implementation
+Add schema markup if the current blog system supports it
+
+Finally provide:
+
+Files modified
+Files created
+Blog URLs generated
+SEO improvements implemented
