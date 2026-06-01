@@ -313,9 +313,6 @@ export default function ContactPage() {
             variants={stagger}
             className="text-center mb-10"
           >
-            <motion.span variants={fadeUp} className="text-[#D4AF37] text-xs font-semibold tracking-[0.25em] uppercase mb-3 block">
-              {t.contact.label}
-            </motion.span>
             <motion.h2 variants={fadeUp} className="text-3xl font-serif font-bold text-foreground">
               {t.contact.inquiryHeading}
             </motion.h2>
