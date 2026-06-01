@@ -68,17 +68,46 @@ export default function ContactPage() {
     defaultValues: { quantity: "", productType: "", destinationCountry: "", budgetRange: "" },
   });
 
-  const onContactSubmit = (_data: ContactForm) => {
-    setContactSubmitted(true);
-    toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-    contactForm.reset();
-  };
+ const onContactSubmit = async (data: ContactForm) => {
+  const response = await fetch("https://formspree.io/f/xnjrkloq", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-  const onInquirySubmit = (_data: InquiryForm) => {
+  if (response.ok) {
+    setContactSubmitted(true);
+    toast({
+      title: "Message sent!",
+      description: "We'll get back to you within 24 hours.",
+    });
+    contactForm.reset();
+  }
+};
+
+const onInquirySubmit = async (data: InquiryForm) => {
+  const response = await fetch("https://formspree.io/f/xnjrkloq", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
     setInquirySubmitted(true);
-    toast({ title: "Export inquiry received!", description: "Our export team will contact you shortly." });
+    toast({
+      title: "Export inquiry received!",
+      description: "Our export team will contact you shortly.",
+    });
     inquiryForm.reset();
-  };
+  }
+};
+ 
 
   return (
     <div className="pt-20">
